@@ -31,5 +31,13 @@ After that, VueJs element has a property called "methods" to add some methods to
 VueJs uses templates to interact with HTML code. So, the Vue Instance creates a template and this template is after translated into HTML Code. This template is a connection between the Vue instance and HTML code.
 
 ## Binding Data
-Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
+Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
     ``<a v-bind:href="data">``
+
+## Directives
+*. v-bind: Bind data or methods on HTML attributes (like href)
+*. v-once: It forces an element to be rendered only once. Exemple:\
+    if we render a value on h1 element and this value would change after, It will automaticly update
+    to the new value. So, to avoid this, we have to use v-once to take just only the first value.
+*. v-html: By default, we can not render HTML code directly, we have to use this directive to do it:
+    v-html="htmlcode"

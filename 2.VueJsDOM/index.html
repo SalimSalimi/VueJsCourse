@@ -11,9 +11,13 @@
 <body>
 	
 	<div id="app">
+		<h1 v-once>{{ title }}</h1>
+		<br>
 		<a v-bind:href= "link">DuckDuckGo</a>
 		<input type="text" v-on:input="changeTitle">
-		<p>{{ title }}</p>
+		<p>{{ sayHello() }}</p>
+		<br>
+		<p v-html='referenceLink'></p>
 	</div>
 
 	<script>
@@ -21,11 +25,16 @@
 			el: '#app',
 			data: {
 				title: 'Hello World!',
-				link: 'https://www.duckduckgo.com/'
+				link: 'https://www.duckduckgo.com/',
+				referenceLink: '<a href="https://www.duckduckgo.com/">DuckDuckGo</a>'
 			},
 			methods : {
 				changeTitle : function(event) {
 					this.title = event.target.value;
+				},
+				sayHello : function() {
+					this.title = "Hello!";
+					return this.title;
 				}
 			}
 		})
