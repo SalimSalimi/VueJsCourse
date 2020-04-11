@@ -11,6 +11,7 @@
 <body>
 	
 	<div id="app">
+		<a v-bind:href= "link">DuckDuckGo</a>
 		<input type="text" v-on:input="changeTitle">
 		<p>{{ title }}</p>
 	</div>
@@ -19,7 +20,8 @@
 		new Vue({
 			el: '#app',
 			data: {
-				title: 'Hello World!'
+				title: 'Hello World!',
+				link: 'https://www.duckduckgo.com/'
 			},
 			methods : {
 				changeTitle : function(event) {
