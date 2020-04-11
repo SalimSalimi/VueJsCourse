@@ -35,9 +35,26 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
     ``<a v-bind:href="data">``
 
 ## Directives
+*. v-on: It listens to any sort of DOM events
 *. v-bind: Bind data or methods on HTML attributes (like href)
 *. v-once: It forces an element to be rendered only once. Exemple:\
     if we render a value on h1 element and this value would change after, It will automaticly update
     to the new value. So, to avoid this, we have to use v-once to take just only the first value.
 *. v-html: By default, we can not render HTML code directly, we have to use this directive to do it:
     v-html="htmlcode"
+
+## Events
+To handle events with VueJs, we have to use ```v-on``` directive. It uses the same DOM event like: v-on:click.\
+The event object created by the DOM is directly passed to the methods that was called by the event, we just have to pass an argument to the function created like : ```updateCoordinates: function(event)```.\
+We can pass arguments to our functions when they called by simply adding () and then pass the argument. Exemple:\
+    ```increase(step, $event)```
+*. *_$event_ object is a reserved so we _MUST NOT_ override it, it is provided by the DOM. (It's optional to use it)*.
+#### Event Modifiers
+Event modifiers can modify how an event should be triggered. For example, (in our span), we can stop the mouseover event triggered by _p_ by simply adding ```v-on.mousemove.stop``` on the _span_.\
+
+*AVAILABLE EVENT MODIFIERS : [Event Modifiers] (http://vuejs.org/v2/guide/events.html#Event-Modifiers)*
+
+#### Key Event Modifiers
+Key event modifiers are event triggered from key input from the user. To do so, we can use the example of an input, when a user tape space or enter, we will show an alert. The event that we should listen is: ```v-on:keyup.enter.space```.\
+
+*AVAILABLE KEY MODIFIERS : [Key Modifiers] (http://vuejs.org/v2/guide/events.html#Key-Modifiers)*

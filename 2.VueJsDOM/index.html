@@ -9,15 +9,20 @@
 </head>
 
 <body>
-	
 	<div id="app">
 		<h1 v-once>{{ title }}</h1>
 		<br>
-		<a v-bind:href= "link">DuckDuckGo</a>
+		<a v-bind:href="link">DuckDuckGo</a>
 		<input type="text" v-on:input="changeTitle">
 		<p>{{ sayHello() }}</p>
 		<br>
 		<p v-html='referenceLink'></p>
+		<button v-on:click='onClickButton(step, $event)'>Click</button>
+		<p>{{ counter }}</p>
+		<p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
+			- <span v-on:mousemove.stop=""> DEAD ZONE</span>
+		</p>
+		<input type="text" v-on:keyup.enter.space="alertMe">
 	</div>
 
 	<script>
@@ -26,18 +31,31 @@
 			data: {
 				title: 'Hello World!',
 				link: 'https://www.duckduckgo.com/',
-				referenceLink: '<a href="https://www.duckduckgo.com/">DuckDuckGo</a>'
+				referenceLink: '<a href="https://www.duckduckgo.com/">DuckDuckGo</a>',
+				counter: 0,
+				x: 0,
+				y: 0
 			},
-			methods : {
-				changeTitle : function(event) {
+			methods: {
+				changeTitle: function (event) {
 					this.title = event.target.value;
 				},
-				sayHello : function() {
+				sayHello: function () {
 					this.title = "Hello!";
 					return this.title;
+				},
+				onClickButton: function(step, event) {
+					this.counter += step;
+				},
+				updateCoordinates: function(event) {
+					this.x = event.clientX;
+					this.y = event.clientY;
+				},
+				alertMe: function(){
+					alert("Key entered")
 				}
 			}
-		})
+		}); 
 	</script>
 </body>
 
