@@ -1,7 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Put this in the HTML section in JSFiddle! -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<title>First VueJs App</title>
+</head>
 
-<div id="app">
-	<p>{{ title }}</p>
-</div>
+<body>
+	
+	<div id="app">
+		<input type="text" v-on:input="changeTitle">
+		<p>{{ title }}</p>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'Hello World!'
+			},
+			methods : {
+				changeTitle : function(event) {
+					this.title = event.target.value;
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
