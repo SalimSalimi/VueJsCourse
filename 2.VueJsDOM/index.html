@@ -22,7 +22,9 @@
 		<p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
 			- <span v-on:mousemove.stop=""> DEAD ZONE</span>
 		</p>
-		<input type="text" v-on:keyup.enter.space="alertMe">
+		<input type="text" v-on:keyup.enter.space="alertMe"><br>
+		<input type="text" v-model="name">
+		<p>{{ name }}</p>
 	</div>
 
 	<script>
@@ -34,7 +36,8 @@
 				referenceLink: '<a href="https://www.duckduckgo.com/">DuckDuckGo</a>',
 				counter: 0,
 				x: 0,
-				y: 0
+				y: 0,
+				name : "Salim"
 			},
 			methods: {
 				changeTitle: function (event) {
