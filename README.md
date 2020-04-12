@@ -37,7 +37,7 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
 ## Directives
 * *v-on*: It listens to any sort of DOM events, _*can be replaced with @*_
 * *v-bind*: Bind data or methods on HTML attributes (like href) _*we can use :href without v-bind*_
-* *v-once*: It forces an element to be rendered only once. Exemple:\
+* *v-once*: It forces an element to be rendered only once. Example:
     if we render a value on h1 element and this value would change after, It will automaticly update
     to the new value. So, to avoid this, we have to use v-once to take just only the first value.
 * *v-html*: By default, we can not render HTML code directly, we have to use this directive to do it:
@@ -46,8 +46,9 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
 * *v-if*: Conditional rendering, if the condition is true, it will trigger the HTML element. Otherwise, it will delete it (not hide it).
 * *v-else*: It's else statement of v-if.
 * *v-show*: It likes v-if, the difference that v-show hides the element without removing it from the DOM.
+* *v-for*: It's a for loop that creates the element in which we attached it according an array. (More detail on Lists section)
 
-## Propeties
+## Properties
 * *el*: The id of the HTML element that we want to connect our Vue object
 * *data*: Holds the data
 * *methods*: Declares all our methods that we can use from our Vue object
@@ -105,8 +106,9 @@ We can attach directly a class by giving the class name on _:class_ directive. W
 We can add new styles dynamicly by using `v-bind:style (or :style)` and give the style that we want to add like CSS code *(When we use a style property that has "-" we should make the style property between '' or make the first letter after '-' camelcase Example 'background-color' or 'backgroundColor')*. \
 We also can use an array.
 
-# Condition Rendering Lists
-## v-if and v-else
+# Condition Rendering and Lists
+## Condition rendering
+### v-if and v-else
 We can use conditions to show or hide HTML element using `v-if`. For example on p HTML:
     ```<p v-if="true"> ``` It will show the element. Otherwise, it will delete it.\
 
@@ -116,10 +118,24 @@ To make a block with a condition, it's better to use *template* HTML element (we
      ```<template> 
         <p> text </p>
         <template>```
-## v-show
+### v-show
 This directive is used to hide and show elements just like v-if, the difference is that it only hides the element, it doesn't remove it from the DOM.
 
+## Lists
+### Loop through arrays
+We can create lists according to arrays with a `v-for` loop. To do so, we have to attach on `ul` for example like this: 
+    `<ul>
+        <li v-for="element in array">{{ element }}</li>
+    </ul>` \
 
+To acces the index of an element, we have to use 2 variables like `v-for= (element, i) in array`. *THE ORDER IS IMPORTANT, THE FIRST IS ALWAYS THE OBJECT ON THE ARRAY, SECOND ONE IS THE INDEX*. \
+We can use it also with template like `v-if`.
+
+### Loop through objects
+To loop through objects and extract their (key, value) pairs et index. We can loop through the object and use it like this : `v-for="(value, key, index) in object`. *The order is also important but we can name as we want*
+
+### Keep Track of array elements
+When an element is added on array or updated on VueJs, it only keeps track of the position of that element, not the element itself. To force VueJs to keep track it, we can add bind a key using `v-bind:key or ':key'` and tells what we should store. 
 
 # Side notes
 * *'<template>'*: HTML tag that is not rendered on HTML code of the page, but it used like (div) but it doesn't create a division actually, we use it for example in conditions and loops.

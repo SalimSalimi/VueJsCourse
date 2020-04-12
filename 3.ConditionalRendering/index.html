@@ -10,7 +10,7 @@
 
 <body>
 	
-	<div id="app">
+	<div id="condition">
 		<p v-if="show">You can see me!</p>
 		<p v-if="!show">And now ?!</p>		
 		<p>Do you also see me?</p>
@@ -22,12 +22,36 @@
 		</template>
 		<p v-show="show">I'm hiding</p>
 	</div>
+	<hr>
+	<div id="loops">
+		<ul>
+			<li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ ingredient }} ({{ i }})</ul>
+		</ul>
+		<hr>
+
+		<ul>
+			<li v-for="person in persons">
+				<div v-for="(value, key, index) in person">{{ key }} {{ value }} ({{index}})</div>
+			</li>
+		</ul>
+	</div>
 	
 	<script>
 		new Vue({
-			el: '#app',
+			el: '#condition',
 			data: {
 				show: true
+			}
+		})
+
+		new Vue({
+			el: '#loops',
+			data: {
+				ingredients: ['milk', 'chocolate', 'sugar'],
+				persons: [
+					{name: 'Salim', age:'23', color:'blue'},
+					{name: 'Yildiz', age:'23', color:'red'}
+				]
 			}
 		})
 	</script>
