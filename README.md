@@ -43,6 +43,8 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
 * *v-html*: By default, we can not render HTML code directly, we have to use this directive to do it:
     v-html="htmlcode"
 * *v-model*: A directive to use Two-Way Data Binding.
+* *v-if*: Conditional rendering, if the condition is true, it will trigger the HTML element. Otherwise, it will delete it (not hide it).
+* *v-else*: It's else statement of v-if
 
 ## Propeties
 * *el*: The id of the HTML element that we want to connect our Vue object
@@ -101,3 +103,21 @@ We can attach directly a class by giving the class name on _:class_ directive. W
 ### Using style directly
 We can add new styles dynamicly by using `v-bind:style (or :style)` and give the style that we want to add like CSS code *(When we use a style property that has "-" we should make the style property between '' or make the first letter after '-' camelcase Example 'background-color' or 'backgroundColor')*. \
 We also can use an array.
+
+# Condition Rendering Lists
+We can use conditions to show or hide HTML element using `v-if`. For example on p HTML:
+    ```<p v-if="true"> ``` It will show the element. Otherwise, it will delete it.\
+
+We can also use `v-else` to do a else statement. The between parenthesis *MUST BE* an expression that can be evaluate into boolean (true or false). \
+
+To make a block with a condition, it's better to use *template* HTML element (we can use div but sometimes we don't want to create a div, instead we use template). We can wrap up all the HTML elements that we want to show/hide with a condition on a template tag:
+
+    ``` <template> 
+        <p> text </p>
+        <template> ```
+
+
+
+
+# Side notes
+* *'<template>'*: HTML tag that is not rendered on HTML code of the page, but it used like (div) but it doesn't create a division actually, we use it for example in conditions and loops.
