@@ -77,3 +77,27 @@ To declare a computed property, just use the ```computed``` keyword and add a fu
 
 ## Watch Properties
 Property that watch to a data value, it triggers the function that we declared on the watch block.
+
+## Dyanamic styling CSS
+We have 3 methods to dynamicly style HTML elements using CSS classes:
+### Using classes
+
+#### Basic conditionally
+Creating a data property that holds a boolean value, this value would change for example on click event, to attach the class, we have to bind it with v-bind on class attribute like so: `v-bind:class={className: value}` or `:class={className: value}` 
+
+#### Using objects
+We can create an object on computed property for example like this: 
+    ```computed: {
+        classStyle: function(){
+            class1: true,
+            class2: false
+        }
+    }```
+then call computed property on :class directive
+
+#### Using class name
+We can attach directly a class by giving the class name on _:class_ directive. We can also put multiple classes using array like _[class1, class2]_ (Also adding objects like before).
+
+### Using style directly
+We can add new styles dynamicly by using `v-bind:style (or :style)` and give the style that we want to add like CSS code *(When we use a style property that has "-" we should make the style property between '' or make the first letter after '-' camelcase Example 'background-color' or 'backgroundColor')*. \
+We also can use an array.

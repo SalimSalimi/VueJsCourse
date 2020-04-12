@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<title>First VueJs App</title>
 </head>
@@ -37,6 +38,22 @@
 
 	</div>
 
+	<div id="style">
+		<div class="demo"
+			@click= "attachedRed = !attachedRed"
+			:class= "{red: attachedRed}"
+		></div>
+		<div class="demo" :class="myStyle"></div>
+		<div class="demo" :class="color"></div>
+		<hr>
+		
+		<div class="demo" :style="{'backgroundColor': color}"></div>
+		<div class="demo" :style="myStyle2"></div>
+		<div class="demo" :style="[myStyle2, {height: width + 'px'}]"></div>
+		
+		<input type="text" v-model="color">
+		<input type="text" v-model="width">
+	</div>
 	<script>
 		new Vue({
 			el: '#app',
@@ -95,6 +112,29 @@
 				}
 			}
 		}) 
+	
+		new Vue({
+			el: "#style",
+			data: {
+				attachedRed: false,
+				color: '',
+				width: 100
+			},
+			computed: {
+				myStyle: function() {
+					return {
+						red: this.attachedRed,
+						blue: !this.attachedRed
+					}
+				},
+				myStyle2: function(){
+					return {
+						backgroundColor: this.color,
+						width: this.width + 'px'
+					};
+				}
+			}
+		})
 	</script>
 </body>
 
