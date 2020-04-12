@@ -44,7 +44,8 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
     v-html="htmlcode"
 * *v-model*: A directive to use Two-Way Data Binding.
 * *v-if*: Conditional rendering, if the condition is true, it will trigger the HTML element. Otherwise, it will delete it (not hide it).
-* *v-else*: It's else statement of v-if
+* *v-else*: It's else statement of v-if.
+* *v-show*: It likes v-if, the difference that v-show hides the element without removing it from the DOM.
 
 ## Propeties
 * *el*: The id of the HTML element that we want to connect our Vue object
@@ -105,17 +106,18 @@ We can add new styles dynamicly by using `v-bind:style (or :style)` and give the
 We also can use an array.
 
 # Condition Rendering Lists
+## v-if and v-else
 We can use conditions to show or hide HTML element using `v-if`. For example on p HTML:
     ```<p v-if="true"> ``` It will show the element. Otherwise, it will delete it.\
 
 We can also use `v-else` to do a else statement. The between parenthesis *MUST BE* an expression that can be evaluate into boolean (true or false). \
 
 To make a block with a condition, it's better to use *template* HTML element (we can use div but sometimes we don't want to create a div, instead we use template). We can wrap up all the HTML elements that we want to show/hide with a condition on a template tag:
-
-    ``` <template> 
+     ```<template> 
         <p> text </p>
-        <template> ```
-
+        <template>```
+## v-show
+This directive is used to hide and show elements just like v-if, the difference is that it only hides the element, it doesn't remove it from the DOM.
 
 
 
