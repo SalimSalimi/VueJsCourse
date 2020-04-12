@@ -35,14 +35,21 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
     ``<a v-bind:href="data">``
 
 ## Directives
-* v-on: It listens to any sort of DOM events
-* v-bind: Bind data or methods on HTML attributes (like href)
-* v-once: It forces an element to be rendered only once. Exemple:\
+* *v-on*: It listens to any sort of DOM events, _*can be replaced with @*_
+* *v-bind*: Bind data or methods on HTML attributes (like href) _*we can use :href without v-bind*_
+* *v-once*: It forces an element to be rendered only once. Exemple:\
     if we render a value on h1 element and this value would change after, It will automaticly update
     to the new value. So, to avoid this, we have to use v-once to take just only the first value.
-* v-html: By default, we can not render HTML code directly, we have to use this directive to do it:
+* *v-html*: By default, we can not render HTML code directly, we have to use this directive to do it:
     v-html="htmlcode"
-* v-model: A directive to use Two-Way Data Binding.
+* *v-model*: A directive to use Two-Way Data Binding.
+
+## Propeties
+* *el*: The id of the HTML element that we want to connect our Vue object
+* *data*: Holds the data
+* *methods*: Declares all our methods that we can use from our Vue object
+* *computed*: Declares methods that are called when it's necessary. It accepts only Synchronous code
+* *watch*: Like observer, watches the changes of a data and call a function that we declare on watch block. Can call asynchronous code
 
 ## Events
 To handle events with VueJs, we have to use ```v-on``` directive. It uses the same DOM event like: v-on:click.\
@@ -63,3 +70,10 @@ Key event modifiers are event triggered from key input from the user. To do so, 
 ## Two-Way Data-Binding
 We can implement Two-Way databinding by using the v-model directive. Example:\
   ```<input type="text" v-model="name">```
+
+## Computed Properties
+It's properties that not calculated everytime an event is happening. For example: We have a method and computed, if the computed property doesn't have any related data meant to be change, it will not call it to recalculate it. For the method, everytime it's called. That's the difference betweeb both. They are used like data properties and not functions.\
+To declare a computed property, just use the ```computed``` keyword and add a function.
+
+## Watch Properties
+Property that watch to a data value, it triggers the function that we declared on the watch block.

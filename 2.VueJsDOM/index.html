@@ -12,12 +12,12 @@
 	<div id="app">
 		<h1 v-once>{{ title }}</h1>
 		<br>
-		<a v-bind:href="link">DuckDuckGo</a>
+		<a :href="link">DuckDuckGo</a>
 		<input type="text" v-on:input="changeTitle">
 		<p>{{ sayHello() }}</p>
 		<br>
 		<p v-html='referenceLink'></p>
-		<button v-on:click='onClickButton(step, $event)'>Click</button>
+		<button @click='onClickButton(2, $event)'>Click</button>
 		<p>{{ counter }}</p>
 		<p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
 			- <span v-on:mousemove.stop=""> DEAD ZONE</span>
@@ -25,6 +25,16 @@
 		<input type="text" v-on:keyup.enter.space="alertMe"><br>
 		<input type="text" v-model="name">
 		<p>{{ name }}</p>
+		
+		
+	</div>
+	<div id="computed">
+		<button v-on:click="counter2++">Increment</button>
+		<button v-on:click="counter2--">Decrement</button>
+		<button v-on:click="secondCounter++">Increment second</button>
+		<p>{{result()}}</p><br>
+		<p>{{computed}}</p>
+
 	</div>
 
 	<script>
@@ -58,7 +68,33 @@
 					alert("Key entered")
 				}
 			}
-		}); 
+		});
+
+		new Vue({
+			el: '#computed',
+			data: {
+				counter2: 0,
+				secondCounter: 0
+			},
+			computed: {
+				output: function () {
+					return this.counter2 > 5 ? 'Greather than 5' : 'Less than 5'
+				}
+			},
+			watch : {
+				counter: function (value) {
+					var vue = this;
+					setInterval(function(){
+						vue.counter2 = 0;
+					}, 2000)
+				}
+			},
+			methods: {
+				result: function () {
+					return this.counter2 > 5 ? 'Greather than 5' : 'Less than 5'
+				}
+			}
+		}) 
 	</script>
 </body>
 
