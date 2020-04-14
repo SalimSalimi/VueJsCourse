@@ -3,7 +3,8 @@ new Vue({
     data: {
         playerHealth: 100,
         monsterHealth: 100,
-        gameIsRunning: false
+        gameIsRunning: false,
+        turns: []
     },
     methods : {
         startGame: function() {
@@ -12,8 +13,14 @@ new Vue({
             this.monsterHealth = 100;
         },
         attack: function() {
-            this.monsterHealth -= this.calculateDamage(3, 10);
-            
+            let damage = this.calculateDamage(3, 10);
+            this.monsterHealth -= damage;
+            //The opposite of push, it adds at the first position not last.
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits Monster for ' + damage
+            });
+
             if (this.checkWin()){
                 return;
             }
@@ -60,8 +67,14 @@ new Vue({
             return false;
         },
         monsterAttacks: function() {
-
-            this.playerHealth -= this.calculateDamage(5, 12);
+            let damage = this.calculateDamage(5,12);
+            this.playerHealth -= damage;
+            
+            this.turns.unshift({
+                isPlayer: false,
+                text: 'Monster hits Player for ' + damage
+            });
+            
             this.checkWin();
         }
     }
