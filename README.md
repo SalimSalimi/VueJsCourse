@@ -10,8 +10,8 @@ Basically, to interact with HTML elements with VueJS, we have to create an insta
             data : 'value'
         }
     })\
-*. el: It represents the element that we want to take control, it uses CSS Selectors.
-*. data: It holds all the data that we want to add to our element "id".\
+* el: It represents the element that we want to take control, it uses CSS Selectors.
+* data: It holds all the data that we want to add to our element "id".\
 
 After that, we can wrap an element on HTML page like a div and show the data on the selected element:\
     ```<div id="app">
@@ -138,4 +138,4 @@ To loop through objects and extract their (key, value) pairs et index. We can lo
 When an element is added on array or updated on VueJs, it only keeps track of the position of that element, not the element itself. To force VueJs to keep track it, we can add bind a key using `v-bind:key or ':key'` and tells what we should store. 
 
 # Side notes
-* *'<template>'*: HTML tag that is not rendered on HTML code of the page, but it used like (div) but it doesn't create a division actually, we use it for example in conditions and loops.
+* *```<template>```*: HTML tag that is not rendered on HTML code of the page, but it used like (div) but it doesn't create a division actually, we use it for example in conditions and loops.
