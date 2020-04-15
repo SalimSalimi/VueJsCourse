@@ -40,6 +40,10 @@ We can access data, methods and computed properties from another instance or jus
 ### ref property
 ref property is like a directive used to select HTML elements (instead of using vanilla JS with document.getElement). We give a name to the ref and access it everywhere using $. Example: `this.$refs.buttonName.innerText = "text"`;
 
+### $mount() method
+Using mount method, we can append a child into the HTML element instead of using "el" property. `vueInstance.$mount("#id");
+
+
 ## Binding Data
 Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
     ``<a v-bind:href="data">``
@@ -61,11 +65,11 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
 
 
 ## Properties
-* *el*: The id of the HTML element that we want to connect our Vue object
-* *data*: Holds the data
-* *methods*: Declares all our methods that we can use from our Vue object
-* *computed*: Declares methods that are called when it's necessary. It accepts only Synchronous code
-* *watch*: Like observer, watches the changes of a data and call a function that we declare on watch block. Can call asynchronous code
+* **el**: The id of the HTML element that we want to connect our Vue object
+* **data**: Holds the data
+* **methods**: Declares all our methods that we can use from our Vue object
+* **computed**: Declares methods that are called when it's necessary. It accepts only Synchronous code
+* **watch**: Like observer, watches the changes of a data and call a function that we declare on watch block. Can call asynchronous code
 
 ## Events
 To handle events with VueJs, we have to use ```v-on``` directive. It uses the same DOM event like: v-on:click.\

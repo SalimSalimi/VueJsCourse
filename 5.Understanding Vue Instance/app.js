@@ -1,5 +1,4 @@
 let vm1 = new Vue({
-  el: '#app1',
   data: {
     title: 'The VueJS Instance',
     showParagraph: false
@@ -26,6 +25,7 @@ let vm1 = new Vue({
   }
 });
 
+vm1.$mount("#app1");
 vm1.$refs.myButton.innerText = "Changed outside Vue with ref"
 
 setTimeout(function(){
@@ -43,3 +43,4 @@ let vm2 = new Vue({
     }
   }
 })
+
