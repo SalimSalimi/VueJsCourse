@@ -4,12 +4,12 @@ VueJs Course with Router and Vuex
 ## VueJs Concepts
 
 Basically, to interact with HTML elements with VueJS, we have to create an instance of Vue like this:\
-    new Vue({
+    ```new Vue({
         el: '#id'
         data: {
             data : 'value'
         }
-    })\
+    })\```
 * el: It represents the element that we want to take control, it uses CSS Selectors.
 * data: It holds all the data that we want to add to our element "id".\
 
@@ -29,6 +29,9 @@ After that, VueJs element has a property called "methods" to add some methods to
 
 #### VueJs: How it works ?
 VueJs uses templates to interact with HTML code. So, the Vue Instance creates a template and this template is after translated into HTML Code. This template is a connection between the Vue instance and HTML code.
+
+### Multiple instances
+In VueJS, it's perfectly fine to have multipe Vue instances. You can one page into multiple components. However, it's not recommended if one of the components would call a method from another Vue instance. 
 
 ## Binding Data
 Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
