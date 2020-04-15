@@ -34,7 +34,8 @@ VueJs uses templates to interact with HTML code. So, the Vue Instance creates a 
 In VueJS, it's perfectly fine to have multipe Vue instances. You can one page into multiple components. However, it's not recommended if one of the components would call a method from another Vue instance. 
 
 ### Access VueJs Instance data from another one
-We can access data, methods and computed properties from another instance or just on JavaScript code by using a variable that we assigned to the VueJs Instance. Example: ```vm1 = new Vue.. vm1.title = "changed"```. 
+We can access data, methods and computed properties from another instance or just on JavaScript code by using a variable that we assigned to the VueJs Instance. Example: ```vm1 = new Vue.. vm1.title = "changed"```. \
+**IMPORTANT:** We can not create new properties dynamically, only properties created with the instance are considered as a property.
 
 
 ## Binding Data
