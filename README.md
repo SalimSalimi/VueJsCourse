@@ -153,5 +153,14 @@ To loop through objects and extract their (key, value) pairs et index. We can lo
 ### Keep Track of array elements
 When an element is added on array or updated on VueJs, it only keeps track of the position of that element, not the element itself. To force VueJs to keep track it, we can add bind a key using `v-bind:key or ':key'` and tells what we should store. 
 
+# Components
+VueJS allows us to create reusable components. This way, we can create like "templates" and use it on different webpages of our web app. \
+To do so, we have to declare a new Vue component like this: \
+ ```Vue.component("componentName", {
+    template: "HTML code"
+  })``` 
+
+To use it on our HTML page, we can just use ```<componentName></componentName>```
+
 # Side notes
 * *```<template>```*: HTML tag that is not rendered on HTML code of the page, but it used like (div) but it doesn't create a division actually, we use it for example in conditions and loops.

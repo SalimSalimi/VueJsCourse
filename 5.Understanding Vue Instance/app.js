@@ -25,6 +25,10 @@ let vm1 = new Vue({
   }
 });
 
+Vue.component('hello', {
+  template: "<h1>Hello World Component!</h1>"
+})
+
 vm1.$mount("#app1");
 vm1.$refs.myButton.innerText = "Changed outside Vue with ref"
 
