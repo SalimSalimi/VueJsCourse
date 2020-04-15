@@ -8,6 +8,7 @@ let vm1 = new Vue({
     show: function() {
       this.showParagraph = true;
       this.updateTitle('The VueJS Instance (Updated)');
+      this.$refs.myButton.innerText = "Changed with ref";
     },
     updateTitle: function(title) {
       this.title = title;
@@ -24,6 +25,8 @@ let vm1 = new Vue({
     }
   }
 });
+
+vm1.$refs.myButton.innerText = "Changed outside Vue with ref"
 
 setTimeout(function(){
   vm1.title = "Changed from timeout";

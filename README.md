@@ -3,7 +3,7 @@ VueJs Course with Router and Vuex
 
 ## VueJs Concepts
 
-Basically, to interact with HTML elements with VueJS, we have to create an instance of Vue like this:\
+Basically, to interact with HTML elements with VueJS, we have to create an instance of Vue like this: \
     ```new Vue({
         el: '#id'
         data: {
@@ -13,10 +13,10 @@ Basically, to interact with HTML elements with VueJS, we have to create an insta
 * el: It represents the element that we want to take control, it uses CSS Selectors.
 * data: It holds all the data that we want to add to our element "id".\
 
-After that, we can wrap an element on HTML page like a div and show the data on the selected element:\
-    ```<div id="app">
-		<p>{{ title }}</p>
-	</div>```\
+After that, we can wrap an element on HTML page like a div and show the data on the selected element: \
+    ``` <div id="app">
+		    <p>{{ title }}</p>
+	    </div>``` \
 
 We can add more functionnalities and event handling with VueJs, to do that we use features called "Directives", one of them is v:on. This directive is used to listen to events. In our case to input events:\
     ```<input type="text" v-on:input="changeTitle">```
@@ -37,6 +37,8 @@ In VueJS, it's perfectly fine to have multipe Vue instances. You can one page in
 We can access data, methods and computed properties from another instance or just on JavaScript code by using a variable that we assigned to the VueJs Instance. Example: ```vm1 = new Vue.. vm1.title = "changed"```. \
 **IMPORTANT:** We can not create new properties dynamically, only properties created with the instance are considered as a property.
 
+### ref property
+ref property is like a directive used to select HTML elements (instead of using vanilla JS with document.getElement). We give a name to the ref and access it everywhere using $. Example: `this.$refs.buttonName.innerText = "text"`;
 
 ## Binding Data
 Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
@@ -44,17 +46,19 @@ Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to
 
 ## Directives
 * *v-on*: It listens to any sort of DOM events, _*can be replaced with @*_
-* *v-bind*: Bind data or methods on HTML attributes (like href) _*we can use :href without v-bind*_
-* *v-once*: It forces an element to be rendered only once. Example:
+* **v-bind**: Bind data or methods on HTML attributes (like href) _*we can use :href without v-bind*_
+* **v-once**: It forces an element to be rendered only once. Example:
     if we render a value on h1 element and this value would change after, It will automaticly update
     to the new value. So, to avoid this, we have to use v-once to take just only the first value.
-* *v-html*: By default, we can not render HTML code directly, we have to use this directive to do it:
+* **v-html**: By default, we can not render HTML code directly, we have to use this directive to do it:
     v-html="htmlcode"
-* *v-model*: A directive to use Two-Way Data Binding.
-* *v-if*: Conditional rendering, if the condition is true, it will trigger the HTML element. Otherwise, it will delete it (not hide it).
-* *v-else*: It's else statement of v-if.
-* *v-show*: It likes v-if, the difference that v-show hides the element without removing it from the DOM.
-* *v-for*: It's a for loop that creates the element in which we attached it according an array. (More detail on Lists section)
+* **v-model**: A directive to use Two-Way Data Binding.
+* **v-if**: Conditional rendering, if the condition is true, it will trigger the HTML element. Otherwise, it will delete it (not hide it).
+* **v-else**: It's else statement of v-if.
+* **v-show**: It likes v-if, the difference that v-show hides the element without removing it from the DOM.
+* **v-for**: It's a for loop that creates the element in which we attached it according an array. (More detail on Lists section)
+* **ref**: Not really a directive, but it used to select HTML elements. (like query selector with Vanilla JS)
+
 
 ## Properties
 * *el*: The id of the HTML element that we want to connect our Vue object
@@ -136,11 +140,11 @@ We can create lists according to arrays with a `v-for` loop. To do so, we have t
         <li v-for="element in array">{{ element }}</li>
     </ul>` \
 
-To acces the index of an element, we have to use 2 variables like `v-for= (element, i) in array`. *THE ORDER IS IMPORTANT, THE FIRST IS ALWAYS THE OBJECT ON THE ARRAY, SECOND ONE IS THE INDEX*. \
+To acces the index of an element, we have to use 2 variables like `v-for= (element, i) in array`. **THE ORDER IS IMPORTANT, THE FIRST IS ALWAYS THE OBJECT ON THE ARRAY, SECOND ONE IS THE INDEX**. \
 We can use it also with template like `v-if`.
 
 ### Loop through objects
-To loop through objects and extract their (key, value) pairs et index. We can loop through the object and use it like this : `v-for="(value, key, index) in object`. *The order is also important but we can name as we want*
+To loop through objects and extract their (key, value) pairs et index. We can loop through the object and use it like this : `v-for="(value, key, index) in object`. **The order is also important but we can name as we want**
 
 ### Keep Track of array elements
 When an element is added on array or updated on VueJs, it only keeps track of the position of that element, not the element itself. To force VueJs to keep track it, we can add bind a key using `v-bind:key or ':key'` and tells what we should store. 
