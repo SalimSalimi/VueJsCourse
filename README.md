@@ -9,17 +9,17 @@ Basically, to interact with HTML elements with VueJS, we have to create an insta
         data: {
             data : 'value'
         }
-    })\```
+    })```
 * el: It represents the element that we want to take control, it uses CSS Selectors.
-* data: It holds all the data that we want to add to our element "id".\
+* data: It holds all the data that we want to add to our element "id".
 
 After that, we can wrap an element on HTML page like a div and show the data on the selected element: \
     ``` <div id="app">
 		    <p>{{ title }}</p>
-	    </div>``` \
+	    </div>``` 
 
 We can add more functionnalities and event handling with VueJs, to do that we use features called "Directives", one of them is v:on. This directive is used to listen to events. In our case to input events:\
-    ```<input type="text" v-on:input="changeTitle">```
+    ```<input type="text" v-on:input="changeTitle">``` \
 After that, VueJs element has a property called "methods" to add some methods to our VueJs instance. "This" refers to data object.\
         ```methods : {
             changeTitle : function(event) {
@@ -38,28 +38,38 @@ We can access data, methods and computed properties from another instance or jus
 **IMPORTANT:** We can not create new properties dynamically, only properties created with the instance are considered as a property.
 
 ### ref property
-ref property is like a directive used to select HTML elements (instead of using vanilla JS with document.getElement). We give a name to the ref and access it everywhere using $. Example: `this.$refs.buttonName.innerText = "text"`;
+ref property is like a directive used to select HTML elements (instead of using vanilla JS with document.getElement). We give a name to the ref and access it everywhere using $. Example: `this.$refs.buttonName.innerText = "text";`
 
 ### $mount() method
-Using mount method, we can append a child into the HTML element instead of using "el" property. `vueInstance.$mount("#id");
+Using mount method, we can append a child into the HTML element instead of using "el" property. `vueInstance.$mount("#id");`.
 
 
 ## VueJS Instance Lifecycle
 ![VueJS Instance](https://i.imgur.com/5hl3s7Q.png)
 
+We can override the lifecycle methods of an instance like a property. Example:
+``` new Vue({
+    el: "#element",
+    data {
+        title: "lol"
+    },
+    beforeCreate: function(){
+        console.log("before create");
+    }
+}) ```
 
 ## Binding Data
-Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
+Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:
     ``<a v-bind:href="data">``
 
 ## Directives
-* *v-on*: It listens to any sort of DOM events, _*can be replaced with @*_
-* **v-bind**: Bind data or methods on HTML attributes (like href) _*we can use :href without v-bind*_
+* **v-on**: It listens to any sort of DOM events, **can be replaced with @**
+* **v-bind**: Bind data or methods on HTML attributes (like href) **we can use :href without v-bind**
 * **v-once**: It forces an element to be rendered only once. Example:
     if we render a value on h1 element and this value would change after, It will automaticly update
     to the new value. So, to avoid this, we have to use v-once to take just only the first value.
 * **v-html**: By default, we can not render HTML code directly, we have to use this directive to do it:
-    v-html="htmlcode"
+    `v-html="htmlcode"`
 * **v-model**: A directive to use Two-Way Data Binding.
 * **v-if**: Conditional rendering, if the condition is true, it will trigger the HTML element. Otherwise, it will delete it (not hide it).
 * **v-else**: It's else statement of v-if.
@@ -80,14 +90,16 @@ To handle events with VueJs, we have to use ```v-on``` directive. It uses the sa
 The event object created by the DOM is directly passed to the methods that was called by the event, we just have to pass an argument to the function created like : ```updateCoordinates: function(event)```.\
 We can pass arguments to our functions when they called by simply adding () and then pass the argument. Exemple:\
     ```increase(step, $event)```
-*. *_$event_ object is a reserved so we _MUST NOT_ override it, it is provided by the DOM. (It's optional to use it)*.
+
+* *$event_ object is a reserved so we **MUST NOT** override it, it is provided by the DOM. (It's optional to use it)*.
+
 #### Event Modifiers
-Event modifiers can modify how an event should be triggered. For example, (in our span), we can stop the mouseover event triggered by _p_ by simply adding ```v-on.mousemove.stop``` on the _span_.\
+Event modifiers can modify how an event should be triggered. For example, (in our span), we can stop the mouseover event triggered by _p_ by simply adding ```v-on.mousemove.stop``` on the _span_.
 
 *AVAILABLE EVENT MODIFIERS : [Event Modifiers] (http://vuejs.org/v2/guide/events.html#Event-Modifiers)*
 
 #### Key Event Modifiers
-Key event modifiers are event triggered from key input from the user. To do so, we can use the example of an input, when a user tape space or enter, we will show an alert. The event that we should listen is: ```v-on:keyup.enter.space```.\
+Key event modifiers are event triggered from key input from the user. To do so, we can use the example of an input, when a user tape space or enter, we will show an alert. The event that we should listen is: ```v-on:keyup.enter.space```.
 
 *AVAILABLE KEY MODIFIERS : [Key Modifiers] (http://vuejs.org/v2/guide/events.html#Key-Modifiers)*
 
@@ -130,9 +142,9 @@ We also can use an array.
 ## Condition rendering
 ### v-if and v-else
 We can use conditions to show or hide HTML element using `v-if`. For example on p HTML:
-    ```<p v-if="true"> ``` It will show the element. Otherwise, it will delete it.\
+    ```<p v-if="true"> ``` It will show the element. Otherwise, it will delete it.
 
-We can also use `v-else` to do a else statement. The between parenthesis *MUST BE* an expression that can be evaluate into boolean (true or false). \
+We can also use `v-else` to do a else statement. The between parenthesis *MUST BE* an expression that can be evaluate into boolean (true or false).
 
 To make a block with a condition, it's better to use *template* HTML element (we can use div but sometimes we don't want to create a div, instead we use template). We can wrap up all the HTML elements that we want to show/hide with a condition on a template tag:
      ```<template> 
@@ -146,23 +158,23 @@ This directive is used to hide and show elements just like v-if, the difference 
 We can create lists according to arrays with a `v-for` loop. To do so, we have to attach on `ul` for example like this: 
     `<ul>
         <li v-for="element in array">{{ element }}</li>
-    </ul>` \
+    </ul>` 
 
 To acces the index of an element, we have to use 2 variables like `v-for= (element, i) in array`. **THE ORDER IS IMPORTANT, THE FIRST IS ALWAYS THE OBJECT ON THE ARRAY, SECOND ONE IS THE INDEX**. \
 We can use it also with template like `v-if`.
 
 ### Loop through objects
-To loop through objects and extract their (key, value) pairs et index. We can loop through the object and use it like this : `v-for="(value, key, index) in object`. **The order is also important but we can name as we want**
+To loop through objects and extract their (key, value) pairs et index. We can loop through the object and use it like this : `v-for="(value, key, index) in object`. **The order is also important but we can name as we want**.
 
 ### Keep Track of array elements
 When an element is added on array or updated on VueJs, it only keeps track of the position of that element, not the element itself. To force VueJs to keep track it, we can add bind a key using `v-bind:key or ':key'` and tells what we should store. 
 
 # Components
-VueJS allows us to create reusable components. This way, we can create like "templates" and use it on different webpages of our web app. \
-To do so, we have to declare a new Vue component like this: \
- ```Vue.component("componentName", {
-    template: "HTML code"
-  })``` 
+VueJS allows us to create reusable components. This way, we can create like "templates" and use it on different webpages of our web app. 
+To do so, we have to declare a new Vue component like this: 
+ ``` Vue.component("componentName", {
+        template: "HTML code"
+     }) ``` 
 
 To use it on our HTML page, we can just use ```<componentName></componentName>```
 

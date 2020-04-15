@@ -22,6 +22,9 @@ let vm1 = new Vue({
     title: function(value) {
       alert('Title changed, new value: ' + value);
     }
+  },
+  beforeCreate: function(){
+    console.log("beforeCreate called");
   }
 });
 
