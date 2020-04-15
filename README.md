@@ -44,6 +44,10 @@ ref property is like a directive used to select HTML elements (instead of using 
 Using mount method, we can append a child into the HTML element instead of using "el" property. `vueInstance.$mount("#id");
 
 
+## VueJS Instance Lifecycle
+![VueJS Instance](https://i.imgur.com/5hl3s7Q.png)
+
+
 ## Binding Data
 Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:\
     ``<a v-bind:href="data">``
