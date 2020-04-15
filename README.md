@@ -48,7 +48,7 @@ Using mount method, we can append a child into the HTML element instead of using
 ![VueJS Instance](https://i.imgur.com/5hl3s7Q.png)
 
 We can override the lifecycle methods of an instance like a property. Example:
-``` new Vue({
+`` new Vue({
     el: "#element",
     data {
         title: "lol"
@@ -56,7 +56,7 @@ We can override the lifecycle methods of an instance like a property. Example:
     beforeCreate: function(){
         console.log("before create");
     }
-}) ```
+}) ``
 
 ## Binding Data
 Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:
