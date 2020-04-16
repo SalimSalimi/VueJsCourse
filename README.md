@@ -18,8 +18,8 @@ After that, we can wrap an element on HTML page like a div and show the data on 
 		    <p>{{ title }}</p>
 	    </div>``` 
 
-We can add more functionnalities and event handling with VueJs, to do that we use features called "Directives", one of them is v:on. This directive is used to listen to events. In our case to input events:\
     ```<input type="text" v-on:input="changeTitle">``` \
+We can add more functionnalities and event handling with VueJs, to do that we use features called "Directives", one of them is v:on. This directive is used to listen to events. In our case to input events:\
 After that, VueJs element has a property called "methods" to add some methods to our VueJs instance. "This" refers to data object.\
         ```methods : {
             changeTitle : function(event) {
@@ -59,7 +59,7 @@ We can override the lifecycle methods of an instance like a property. Example:
 }) ``
 
 ## Binding Data
-Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}">. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:
+Basically, to show any data with VueJs on HTML, we have to use ``{{ data }}`` to do so. But, to bind data into an HTML element attribute (like href on a). We can not use like : `` <a href="{{link}}"> ``. It will consider like a normal string. Instead of this, VueJs provides a directive called v:bind. To achieve this, we have to do so and without {{}}:
     ``<a v-bind:href="data">``
 
 ## Directives
@@ -169,14 +169,41 @@ To loop through objects and extract their (key, value) pairs et index. We can lo
 ### Keep Track of array elements
 When an element is added on array or updated on VueJs, it only keeps track of the position of that element, not the element itself. To force VueJs to keep track it, we can add bind a key using `v-bind:key or ':key'` and tells what we should store. 
 
-# Components
+## Components
 VueJS allows us to create reusable components. This way, we can create like "templates" and use it on different webpages of our web app. 
-To do so, we have to declare a new Vue component like this: 
- ``` Vue.component("componentName", {
+To do so, we have to declare a new Vue component like this:
+
+ `` Vue.component("componentName", {
         template: "HTML code"
-     }) ``` 
+     }) `` 
 
 To use it on our HTML page, we can just use ```<componentName></componentName>```
 
+
+# Moving to real development workflow with Webpack and VueCLI
+In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
+## Development Server
+It's a lightweight development server used with NodeJs, it will help for compiling our Vues and serve our HTML pages using HTTP protocol. It will compile all our templates in to JavaScript code from the server, not on the browser.
+
+## Development Workflow
+
+![Development Workflow](https://i.imgur.com/7MLT2WQ.png)
+
+It allows us to shrink our project, making the app faster.
+
+## Vue CLI
+It's a set of tools that allows us to generate templates for our project, compile it and testing it.
+
+![Vue CLI](https://i.imgur.com/Mhocdm9.png)
+
+To get started, we have to install globally vue-cli using npm: `npm install -g @vue/cli`.
+
+After that, we can init a new Vue project using a template with: `vue create "project-name" `.
+* project-name: Name of the project.
+
+To run the project, we have to enter to the folder of the project and run ` npm run serve `.
+
+After that, we can follow the commands shown on the command line: `npm install && npm run dev`.
+We can access our project on (http://localhost:8080) 
 # Side notes
 * *```<template>```*: HTML tag that is not rendered on HTML code of the page, but it used like (div) but it doesn't create a division actually, we use it for example in conditions and loops.
