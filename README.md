@@ -191,6 +191,16 @@ There are some differences between them:
 
 - With components, we can reuse the component accross the page and each of them is different (In term of holding data)
 - The data field on Component object is a function because It heritates from Vue and to avoid the interference between the two objects, It declared as a function. Also, It makes the data unique for every instance of the component. **NOTE**: If we want to share the same data, we can cheat by declaring a global object that holds the data. After that, we can return this object on data function.
+- To use a Component locally, we can declare a variable that holds our component data then pass it to `components` property to our view instance.
+
+```
+new Vue({
+  el: "#app",
+  components: {
+    'mycmp': component
+  },
+});
+```
 
 # Moving to real development workflow with Webpack and VueCLI
 
