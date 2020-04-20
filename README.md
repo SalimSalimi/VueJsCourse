@@ -208,6 +208,29 @@ new Vue({
 
 It's a good practice to separate the components on different subfolders. First, it's good to make "components" on the "components" folder. And inside, create other subfolders and organize them depending of utilisation.
 
+### Components Naming
+
+On VueJS, it's better to use the '-' naming convention because it's look like more HTMLish. For that, we have 2 options to name our components:
+
+- _Classic One_: By simply giving a name like 'app-component-name'.
+- _Auto Generated_: By using appComponentName, VueJS will create a component that we can access with:
+  _app-component-name_ or with _appComponentName_.
+- _Not Specifying A Component Name_: If we don't specify a component name and pass only the component, it will create a key value pair for us with the same name as the component.
+
+** Example **:
+
+```
+components: {
+    appHeader: Header, _Auto Generated_
+    Servers, _Without Name_
+    "app-server-details": ServerDetails,  _Classic_
+    "app-footer": Footer _Classic_
+```
+
+### Components Styling
+
+We can style our components directly on `<style>` tag present on vue file. If we apply a style, It will apply globally to all of the elements event if it's not the same components. To avoid this, we have to use `scoped` keyword to say to VueJs apply this style only on this current component. `<style scoped> styling <style>`
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
