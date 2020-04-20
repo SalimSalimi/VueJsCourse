@@ -204,6 +204,10 @@ new Vue({
 
 - When creating a new component on VueJS with Webpack, we have to wrap that component on a root view element (a div for example). So, the component must be on a template AND on a root component.
 
+### Folder Structure for the Components
+
+It's a good practice to separate the components on different subfolders. First, it's good to make "components" on the "components" folder. And inside, create other subfolders and organize them depending of utilisation.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
