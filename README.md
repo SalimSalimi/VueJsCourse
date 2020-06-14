@@ -293,7 +293,9 @@ We can communicate between childs by using 2 methods described before (callbacks
 
 The logic is to create a new Vue Instance before the main one that will be exported. This Vue Instace will hold events and be like a middleware for all the child. This done by emitting an event from one child with that new Vue Instance. Then, on the other child, on its instance, we should register the event in "created() [It's a Lifecycle method that's called on the creation of the Vue Instance]". On that block, we use that Vue Instance middleware and register the event with `middleware.$on('eventName', (data) => {});`.
 
-Therefore, in this approach and this project, it's a good practice to use it. But, on complex projects, we can have some state management problems that will be dealed with **Vuex**.
+* Therefore, in this approach and this project, it's a good practice to use it. But, on complex projects, we can have some state management problems that will be dealed with **Vuex**.
+
+* We can also centralize data or methods by usings Bus communication, on the Vue Instance Bus, we can register a method that will emit an event. This method will be called by one of the child, then others will listen to the events and act accordingly. 
 
 # Moving to real development workflow with Webpack and VueCLI
 
