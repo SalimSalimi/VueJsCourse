@@ -241,7 +241,32 @@ In the parent side, to pass the data into the child component, we have to bind t
 
 Now, on the child side, to get the data, we should do this: props: ['data'] on the Vue Instance.
 
-Now, we access it as a normal property. 
+Now, we access it as a normal property.
+
+##### Validating Props
+
+We can specify the type of props by spliting the props array into an object. The object would have then properties that is the same as the data name sent from the parent. After that, we have two ways of specifying the type:
+
+* Directly using type
+```
+export default {
+  props: {
+    variable: type (to use multiple types, we can put it all the types in an array: [String, Array])
+  }
+}
+```
+* Using an object
+```
+export default {
+  props: {
+    variable {
+      type: type,
+      default: (default value),
+      required: (if it's required to receive the data or not, boolean)
+    }
+  }
+}
+```
 
 # Moving to real development workflow with Webpack and VueCLI
 
