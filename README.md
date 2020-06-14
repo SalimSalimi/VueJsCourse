@@ -239,7 +239,9 @@ To transfer data from parent to child, we use **props** on the Vue Instance. Pro
 
 In the parent side, to pass the data into the child component, we have to bind that data in the component directive. For example: `<child-component-name :data="data-name"></child-component-name>`. *If we don't bind (ommiting the ':' or 'v-bind') will make the data static*.
 
-Now, on the child side, to get the data, we can should do this: props: ['data'] on the Vue Instance.
+Now, on the child side, to get the data, we should do this: props: ['data'] on the Vue Instance.
+
+Now, we access it as a normal property. 
 
 # Moving to real development workflow with Webpack and VueCLI
 
