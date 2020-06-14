@@ -4,6 +4,7 @@
         <p>Many Details</p>
         <p>User Name: {{ reverseName() }}</p>
         <button @click="resetName">Reset the name</button>
+        <button @click="resetCallback">Reset the name with callback</button>
     </div>
 </template>
 
@@ -12,7 +13,8 @@ export default {
     props: {
         myName: {
             type: String
-        }
+        },
+        resetCallback: Function
     },
     methods: {
         reverseName() {

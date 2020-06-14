@@ -7,7 +7,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :myName="name" @nameWasReset="name = $event"></app-user-detail>
+                <app-user-detail :myName="name" @nameWasReset="name = $event" :resetCallback="resetNameCallback"></app-user-detail>
             </div
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -28,7 +28,10 @@
         },
         methods: {
             changeName() {
-                this.name = "Salimi"
+                this.name = "Salimi";
+            },
+            resetNameCallback() {
+                this.name = "Salim";
             }
         },
         components: {

@@ -267,12 +267,19 @@ export default {
   }
 }
 ```
+### Communication from child to parent
 
-#### Custom events from child to parent
+#### Using Custom events
 
 To trigger an event from the child to the parent, we have to use the `this.$emit()` method provided by VueJS. The method takes arguments: Name of the method which will be executed on the parent component, the rest is the data that will be sent. Example: `this.$emit('eventName', data);`
 
 On the parent side, we would trigger an event with "v-on or @" with the name that we specified on the child and access data with *$event* object. Example: `<component-child-name @eventName = "data = $event"></component-child-name>`..
+
+#### Using callback
+
+We can pass a callback function from the parent to the child. To do so, we have to declare a function (obviously) on the parent side, pass it like a normal property as we did for the data then pass the reference to the function. Example: `<component-child-name :callback="functionName"></component-child-name>`.
+
+On the child side, we get the callback on the VueJs Instance and specify type as "Function". Then we can call it on the child as a normal method.
 
 ### Unidirectional communication
 
