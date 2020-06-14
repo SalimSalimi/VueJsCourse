@@ -272,7 +272,11 @@ export default {
 
 To trigger an event from the child to the parent, we have to use the `this.$emit()` method provided by VueJS. The method takes arguments: Name of the method which will be executed on the parent component, the rest is the data that will be sent. Example: `this.$emit('eventName', data);`
 
-On the parent side, we would trigger an event with "v-on or @" with the name that we specified on the child and access data with *$event* object. Example: `<component-child-name @eventName = "data = $event"></component-child-name>`
+On the parent side, we would trigger an event with "v-on or @" with the name that we specified on the child and access data with *$event* object. Example: `<component-child-name @eventName = "data = $event"></component-child-name>`..
+
+### Unidirectional communication
+
+Childs on the same level can not communicate each other, to make them communicate, we should always pass to the parent first and the parent serve the child. This is called unidirectional data flow.
 
 # Moving to real development workflow with Webpack and VueCLI
 
