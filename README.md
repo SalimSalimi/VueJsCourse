@@ -281,9 +281,19 @@ We can pass a callback function from the parent to the child. To do so, we have 
 
 On the child side, we get the callback on the VueJs Instance and specify type as "Function". Then we can call it on the child as a normal method.
 
-### Unidirectional communication
+### Unidirectional Data Flow
 
 Childs on the same level can not communicate each other, to make them communicate, we should always pass to the parent first and the parent serve the child. This is called unidirectional data flow.
+
+#### Communication between childs components
+
+We can communicate between childs by using 2 methods described before (callbacks or event). But this approach is not very suitable when we have a complex childs arborescence. To avoid that, we have **Bus communication**.
+
+##### Bus communication Logic
+
+The logic is to create a new Vue Instance before the main one that will be exported. This Vue Instace will hold events and be like a middleware for all the child. This done by emitting an event from one child with that new Vue Instance. Then, on the other child, on its instance, we should register the event in "created() [It's a Lifecycle method that's called on the creation of the Vue Instance]". On that block, we use that Vue Instance middleware and register the event with `middleware.$on('eventName', (data) => {});`.
+
+Therefore, in this approach and this project, it's a good practice to use it. But, on complex projects, we can have some state management problems that will be dealed with **Vuex**.
 
 # Moving to real development workflow with Webpack and VueCLI
 
