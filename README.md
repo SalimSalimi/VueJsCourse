@@ -231,6 +231,16 @@ components: {
 
 We can style our components directly on `<style>` tag present on vue file. If we apply a style, It will apply globally to all of the elements event if it's not the same components. To avoid this, we have to use `scoped` keyword to say to VueJs apply this style only on this current component. `<style scoped> styling <style>`
 
+### Components Communication
+
+#### From parent to child communication
+
+To transfer data from parent to child, we use **props** on the Vue Instance. Props is a property that we should define on the child component. It's an array of Strings containing the name of the properties sent from the parent to the child. Then, it will create a variable data with the same name as the property and we can use it on the template.
+
+In the parent side, to pass the data into the child component, we have to bind that data in the component directive. For example: `<child-component-name :data="data-name"></child-component-name>`. *If we don't bind (ommiting the ':' or 'v-bind') will make the data static*.
+
+Now, on the child side, to get the data, we can should do this: props: ['data'] on the Vue Instance.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
