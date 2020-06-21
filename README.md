@@ -322,6 +322,15 @@ We can pass differents slots at the same time by giving them a name. To achieve 
 * If we don't assign a name to a slot (for both parent and child side), it will render the content on that slot.
 * We can also define a default value (or slot) if we don't receive the slot from the parent by adding the content between `slot` tag on the child side.
 
+### Dynamic Components
+
+In order to switch between multiple components dynamically:
+
+* We can declare a variable on the parent components in data field and assign a default value of a component name: `selectedComponent=componentName`.
+* In `template` tag, we add `component` tag and bind the variable name on `is` attribute: `<component :is="selectedComponent></component>` 
+
+* Assign new values to `selectedComponent` by using buttons for example.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
