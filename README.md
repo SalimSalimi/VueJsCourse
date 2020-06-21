@@ -297,6 +297,18 @@ The logic is to create a new Vue Instance before the main one that will be expor
 
 * We can also centralize data or methods by usings Bus communication, on the Vue Instance Bus, we can register a method that will emit an event. This method will be called by one of the child, then others will listen to the events and act accordingly. 
 
+#### Passing data with slots
+
+In order to send some html code from parent to child, we should use **slots**. In order to achieve, we pass the html code between the children tag. Example:
+
+```
+<children-tag-component>
+  <h1>Slots</h1>
+  <p>This HTML code will be displayed in child component!</p>
+<children-tag-component>
+```
+
+Then, in the child site, on the template tag, we just add the *slots*: `<slot> </slot>` and that's it.
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
