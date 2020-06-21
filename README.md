@@ -309,6 +309,14 @@ In order to send some html code from parent to child, we should use **slots**. I
 ```
 
 Then, in the child site, on the template tag, we just add the *slots*: `<slot> </slot>` and that's it.
+
+##### Using differents slots
+
+We can pass differents slots at the same time by giving them a name. To achieve this:
+* On the child side, on the slot tag, we add an attribute `name` and give it a name: `<slot name="slotName"></slot>`
+* On the parent side, on the tag that we want to pass, we add an attribute `slot` ang give it a name:
+`<h2 slot='slotName'></slot>`
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
