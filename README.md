@@ -317,6 +317,11 @@ We can pass differents slots at the same time by giving them a name. To achieve 
 * On the parent side, on the tag that we want to pass, we add an attribute `slot` ang give it a name:
 `<h2 slot='slotName'></slot>`
 
+##### Default slots
+
+* If we don't assign a name to a slot (for both parent and child side), it will render the content on that slot.
+* We can also define a default value (or slot) if we don't receive the slot from the parent by adding the content between `slot` tag on the child side.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
