@@ -331,6 +331,14 @@ In order to switch between multiple components dynamically:
 
 * Assign new values to `selectedComponent` by using buttons for example.
 
+By default, while switching between components, they are destroyed and recreated completly. To avoid that:
+
+* We can wrap the `component` tag in a new tag `keep-alive`: `<keep-alive> <component :is=".."></component></keep-alive>`. While doing that, the `Destroyed` lifecycle method is no longer called.
+
+* If we want to react to an event while switching components, we use 2 lifecycle hooks: `deactivated` and `activated`.
+
+
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
