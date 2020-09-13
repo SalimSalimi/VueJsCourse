@@ -350,19 +350,19 @@ We can use some modifiers according to our needs, to use them, we have to add th
 * **number**: This modifier convert the input from string to number directly.
 * **trim**: Deletes whitespace in the beginning and at the end of the input.
 
-*We can chain the modifiers one by one: **lazy.number** *
+*We can chain the modifiers one by one: **lazy.number***
 
 #### Textarea binding and line spacing
 To prepopulate a Textarea, we can not use * {{ value }} * in the Textarea as we normally do to print text. Instead, we use *v-model* and give it a default value to do it.
 
 To print some text in multi-line, by default, it ignores the whitespace. To make it show that space, we add a css *style* for the tag where we want to show it. Therefore, it's not an issue with Vue but instead it's with HTML, the multiline text is well formated when it's saved. Example: 
 
-*** <p style="white-space: pre">{{ text }}<p> ***
+``` <p style="white-space: pre">{{ text }}<p> ```
 
 #### Saving Checkboxes value
 To save checkboxes value, we can use an array to save it. For that, we declare an empty array and bind it on the input with *v-model*: 
 
-*** <input type="checkbox" value="lol" v-model="array"> ***
+``` <input type="checkbox" value="lol" v-model="array"> ```
 
 Vue will add the value inside of the array.
 
@@ -374,12 +374,12 @@ In order to populate our select, we declare an array of the values and we loop w
 
 To get the value, we bind a variable on the *<select>* tag using *v-model*. With that, we can access the data and even put a default value to show it first on the *select*. We can also put default value on the *<option>* tag by using *:selected="condition"*, but if we assign a default value for the varible that holds *<select>* it will overwrite it.
 
-*** <option v-for='loop' :selected="condition"> *** 
+``` <option v-for='loop' :selected="condition"> ```
 
 #### How v-model works
 Behind the scenes, when we bind a variable using v-model on an input, it does 2 things, example:
 
-*** <input type="text" v-model="var"> *** this is equivalent to: *** <input type="texte" :value="var" @input="var = $event.target.value"> ***
+``` <input type="text" v-model="var"> ``` this is equivalent to: ``` <input type="texte" :value="var" @input="var = $event.target.value"> ```
 
 # Moving to real development workflow with Webpack and VueCLI
 
