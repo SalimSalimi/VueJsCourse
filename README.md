@@ -340,6 +340,17 @@ By default, while switching between components, they are destroyed and recreated
 ## Forms Handling
 
 For Handling Input forms, we case use **Two-Way Databinding** by using **v-model** on the inputs. 
+This will make change the value instantly after every key entering, we can use some modifiers to modify the behaviour:
+
+### Modifiers
+
+We can use some modifiers according to our needs, to use them, we have to add the modifier after *v-model*: *v-model.modifier*. 
+
+* **lazy**: This modifier updates the data after the input is no longer focused.
+* **number**: This modifier convert the input from string to number directly.
+* **trim**: Deletes whitespace in the beginning and at the end of the input.
+
+*We can chain the modifiers one by one: **lazy.number** *
 
 # Moving to real development workflow with Webpack and VueCLI
 

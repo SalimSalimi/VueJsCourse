@@ -13,11 +13,11 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" v-model="userData.password"/>
+            <input type="password" id="password" class="form-control" v-model.lazy="userData.password"/>
           </div>
           <div class="form-group">
             <label for="age">Age</label>
-            <input type="number" id="age" class="form-control" v-model="userData.age"/>
+            <input type="number" id="age" class="form-control" v-model.number="userData.age"/>
           </div>
         </div>
       </div>
