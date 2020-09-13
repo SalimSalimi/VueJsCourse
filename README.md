@@ -376,6 +376,11 @@ To get the value, we bind a variable on the *<select>* tag using *v-model*. With
 
 *** <option v-for='loop' :selected="condition"> *** 
 
+#### How v-model works
+Behind the scenes, when we bind a variable using v-model on an input, it does 2 things, example:
+
+*** <input type="text" v-model="var"> *** this is equivalent to: *** <input type="texte" :value="var" @input="var = $event.target.value"> ***
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
