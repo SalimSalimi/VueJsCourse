@@ -381,6 +381,10 @@ Behind the scenes, when we bind a variable using v-model on an input, it does 2 
 
 ``` <input type="text" v-model="var"> ``` this is equivalent to: ``` <input type="texte" :value="var" @input="var = $event.target.value"> ```
 
+#### Submitting a form
+When only one button is present in a form, it's automatically considered as "Submit" button.
+To handle submit, we simply add `@click` event on the button and by default it's submitted to the server. To prevent that, we add `prevent` option to the event: `@click.prevent="methodName"`.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
