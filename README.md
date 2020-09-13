@@ -337,7 +337,9 @@ By default, while switching between components, they are destroyed and recreated
 
 * If we want to react to an event while switching components, we use 2 lifecycle hooks: `deactivated` and `activated`.
 
+## Forms Handling
 
+For Handling Input forms, we case use **Two-Way Databinding** by using **v-model** on the inputs. 
 
 # Moving to real development workflow with Webpack and VueCLI
 
