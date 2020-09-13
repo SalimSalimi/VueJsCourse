@@ -359,6 +359,13 @@ To print some text in multi-line, by default, it ignores the whitespace. To make
 
 *** <p style="white-space: pre">{{ text }}<p> ***
 
+#### Saving Checkboxes value
+To save checkboxes value, we can use an array to save it. For that, we declare an empty array and bind it on the input with *v-model*: 
+
+*** <input type="checkbox" value="lol" v-model="array"> ***
+
+Vue will add the value inside of the array.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.

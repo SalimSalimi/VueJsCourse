@@ -9,15 +9,30 @@
           <hr />
           <div class="form-group">
             <label for="email">Mail</label>
-            <input type="text" id="email" class="form-control" v-model="userData.email"/>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              v-model="userData.email"
+            />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" v-model.lazy="userData.password"/>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              v-model.lazy="userData.password"
+            />
           </div>
           <div class="form-group">
             <label for="age">Age</label>
-            <input type="number" id="age" class="form-control" v-model.number="userData.age"/>
+            <input
+              type="number"
+              id="age"
+              class="form-control"
+              v-model.number="userData.age"
+            />
           </div>
         </div>
       </div>
@@ -41,10 +56,21 @@
         >
           <div class="form-group">
             <label for="sendmail">
-              <input type="checkbox" id="sendmail" value="SendMail" /> Send Mail
+              <input
+                type="checkbox"
+                id="sendmail"
+                value="SendMail"
+                v-model="sendMail"
+              />
+              Send Mail
             </label>
             <label for="sendInfomail">
-              <input type="checkbox" id="sendInfomail" value="SendInfoMail" />
+              <input
+                type="checkbox"
+                id="sendInfomail"
+                value="SendInfoMail"
+                v-model="sendMail"
+              />
               Send Infomail
             </label>
           </div>
@@ -95,7 +121,7 @@
             <p style="white-space: pre">Message:{{ message }}</p>
             <p><strong>Send Mail?</strong></p>
             <ul>
-              <li></li>
+              <li v-for="item in sendMail" :key="item">{{ item }}</li>
             </ul>
             <p>Gender:</p>
             <p>Priority:</p>
@@ -116,7 +142,8 @@ export default {
         password: "",
         age: 25
       },
-      message: "A text to show"
+      message: "A text to show",
+      sendMail: []
     };
   }
 };
