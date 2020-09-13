@@ -369,6 +369,13 @@ Vue will add the value inside of the array.
 #### RadioButtons handling
 To handle radiobuttons, it's easy. We declare a variable and assign it to the radiobutton input *v-model* attribut. This will store the value of the radiobutton, and prevent to have multiple choices.
 
+#### Select handling 
+In order to populate our select, we declare an array of the values and we loop with *for loop* on *<option>* tag.
+
+To get the value, we bind a variable on the *<select>* tag using *v-model*. With that, we can access the data and even put a default value to show it first on the *select*. We can also put default value on the *<option>* tag by using *:selected="condition"*, but if we assign a default value for the varible that holds *<select>* it will overwrite it.
+
+*** <option v-for='loop' :selected="condition"> *** 
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
