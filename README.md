@@ -352,6 +352,13 @@ We can use some modifiers according to our needs, to use them, we have to add th
 
 *We can chain the modifiers one by one: **lazy.number** *
 
+#### Textarea binding and line spacing
+To prepopulate a Textarea, we can not use * {{ value }} * in the Textarea as we normally do to print text. Instead, we use *v-model* and give it a default value to do it.
+
+To print some text in multi-line, by default, it ignores the whitespace. To make it show that space, we add a css *style* for the tag where we want to show it. Therefore, it's not an issue with Vue but instead it's with HTML, the multiline text is well formated when it's saved. Example: 
+
+*** <p style="white-space: pre">{{ text }}<p> ***
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
