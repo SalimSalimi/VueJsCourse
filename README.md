@@ -78,7 +78,9 @@ For configurating a custom directives, it's important to understand the 5 hooks 
 
 We use mostly `bind` and `update` hooks.
 
-We access the DOM element with the variable `el` and from that, we can apply styling etc.
+* We access the DOM element with the variable `el` and from that, we can apply styling etc.
+* We can it make it more dynamic by passing a value instead of statically, to do so:
+We can access the value sent from binding: `binding.value` and then, we use the directive like this: `v-directive="value"`.
 
 ## Properties
 
