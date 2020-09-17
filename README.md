@@ -74,8 +74,11 @@ In some use-cases, it's usefull to create your own custom directives (Highliting
 ```Vue.directive(id: String, function)```
 For configurating a custom directives, it's important to understand the 5 hooks (Kind of lifecycle):
 
-![Directive Hooks](https://ibb.co/0MZ78w8)
+[![Directives Hooks](https://i.postimg.cc/ydm9NVyt/Screenshot-from-2020-09-17-16-08-16.png)](https://postimg.cc/dk0DHcXj)
 
+We use mostly `bind` and `update` hooks.
+
+We access the DOM element with the variable `el` and from that, we can apply styling etc.
 
 ## Properties
 
