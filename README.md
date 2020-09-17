@@ -69,10 +69,16 @@ Basically, to show any data with VueJs on HTML, we have to use `{{ data }}` to d
 - **ref**: Not really a directive, but it used to select HTML elements. (like query selector with Vanilla JS)
 
 ### Creating Custom Directives
-In some use-cases, it's usefull to create your own custom directives (Highliting text, animations etc.). We declare them on the ```main.js``` file. To declare them, we use the Vue instance with .directive property:
+In some use-cases, it's usefull to create your own custom directives (Highliting text, animations etc.). 
+ 
+* We declare them on the ```main.js``` for a global scope file. To declare them, we use the Vue instance with .directive property:
 
 ```Vue.directive(id: String, function)```
 For configurating a custom directives, it's important to understand the 5 hooks (Kind of lifecycle):
+
+* We can also declare them locally in `export default` with the key `directives` (As we do for components for example).
+
+#### Directives Hooks 
 
 [![Directives Hooks](https://i.postimg.cc/ydm9NVyt/Screenshot-from-2020-09-17-16-08-16.png)](https://postimg.cc/dk0DHcXj)
 
@@ -83,6 +89,7 @@ We use mostly `bind` and `update` hooks.
 We can access the value sent from binding: `binding.value` and then, we use the directive like this: `v-directive="value"`.
 * To use **arguments** (v-directive:argument): We can access the arguments sent with `binding` variable with the property `arg`: `binding.arg == argument`.
 * To use **Modifiers** (v-directive:argument.modifier): We access them from `binding` with property `modifiers` which is an array object. Example: `binding.modifiers['modifier']`. And we can chain modifiers one behind an another.
+
 
 
 ## Properties
