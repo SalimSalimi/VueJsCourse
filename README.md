@@ -86,7 +86,8 @@ We use mostly `bind` and `update` hooks.
 
 * We access the DOM element with the variable `el` and from that, we can apply styling etc.
 * We can it make it more dynamic by passing a value instead of statically, to do so:
-We can access the value sent from binding: `binding.value` and then, we use the directive like this: `v-directive="value"`.
+We can access the value sent from binding: `binding.value` and then, we use the directive like this: `v-directive="value"`. For multiple values, we can create like a JSON Object and access them with their keys: `v-directive="key1: value, key2: value"`. Then, in the code: `binding.value.key1`.
+
 * To use **arguments** (v-directive:argument): We can access the arguments sent with `binding` variable with the property `arg`: `binding.arg == argument`.
 * To use **Modifiers** (v-directive:argument.modifier): We access them from `binding` with property `modifiers` which is an array object. Example: `binding.modifiers['modifier']`. And we can chain modifiers one behind an another.
 
