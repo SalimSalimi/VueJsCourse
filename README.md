@@ -68,6 +68,15 @@ Basically, to show any data with VueJs on HTML, we have to use `{{ data }}` to d
 - **v-for**: It's a for loop that creates the element in which we attached it according an array. (More detail on Lists section)
 - **ref**: Not really a directive, but it used to select HTML elements. (like query selector with Vanilla JS)
 
+### Creating Custom Directives
+In some use-cases, it's usefull to create your own custom directives (Highliting text, animations etc.). We declare them on the ```main.js``` file. To declare them, we use the Vue instance with .directive property:
+
+```Vue.directive(id: String, function)```
+For configurating a custom directives, it's important to understand the 5 hooks (Kind of lifecycle):
+
+![Directive Hooks](https://ibb.co/0MZ78w8)
+
+
 ## Properties
 
 - **el**: The id of the HTML element that we want to connect our Vue object
