@@ -91,7 +91,12 @@ We can access the value sent from binding: `binding.value` and then, we use the 
 * To use **arguments** (v-directive:argument): We can access the arguments sent with `binding` variable with the property `arg`: `binding.arg == argument`.
 * To use **Modifiers** (v-directive:argument.modifier): We access them from `binding` with property `modifiers` which is an array object. Example: `binding.modifiers['modifier']`. And we can chain modifiers one behind an another.
 
+## Filters & Mixins
 
+### Filters
+Filters are a way to transform output in to the template (`ONLY THE OUTPUT NOT DATA ITSELF`). VueJs doesn't ship with built-in Filters, we have to create all of them.
+
+One use case for filters is to make a string to show as uppercase.
 
 ## Properties
 
