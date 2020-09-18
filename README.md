@@ -122,6 +122,7 @@ When we have a shared properties with some components, we can declare a mixin in
 `mixins: ['mixin']`.
 
 * We can also create a global mixin with: `Vue.mixin({})` but it's not recommended to use it.
+* Every mixin component is independant from the other, which means if we change a value on one component, it will not affect other components. If we want to do it, we can use the event bus to achieve or create a global variable (not as a mixin) in a different js file and import it for every component.
 
 ## Properties
 
