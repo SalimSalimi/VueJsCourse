@@ -117,6 +117,10 @@ Example: ``` filters: {
 
 * Sometimes, it's better to use a computed property instead of a filter for performance wise. Because while using filters, VueJs is always recreating the DOM and it can lead to performance issues. Instead, we should use **computed** properties, because they are calculated whenever there is an update to the computed property. Example: Filtering an array according to the user input.
 
+### Mixins
+When we have a shared properties with some components, we can declare a mixin in a js file and export. Then we import like a normal component. To use it, we should declare it in `mixins` property of a component which is an array. Example: `import { mixin } from './mixin.js` then in property: 
+`mixins: ['mixin']`.
+
 ## Properties
 
 - **el**: The id of the HTML element that we want to connect our Vue object
@@ -126,7 +130,7 @@ Example: ``` filters: {
 - **watch**: Like observer, watches the changes of a data and call a function that we declare on watch block. Can call asynchronous code
 - **directives**: Declaring a new custom directive in a local scope 
 - **filters**: To add a new filter for local scope.
-
+- **mixins**: When we declare shared properties between components, we import it in mixins property which is ana array.
 ## Events
 
 To handle events with VueJs, we have to use `v-on` directive. It uses the same DOM event like: v-on:click.\
