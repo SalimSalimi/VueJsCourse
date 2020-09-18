@@ -115,6 +115,8 @@ Example: ``` filters: {
 
 * We can chain filters one behind an another, the filter takes the result of what's behind it as an input.
 
+* Sometimes, it's better to use a computed property instead of a filter for performance wise. Because while using filters, VueJs is always recreating the DOM and it can lead to performance issues. Instead, we should use **computed** properties, because they are calculated whenever there is an update to the computed property. Example: Filtering an array according to the user input.
+
 ## Properties
 
 - **el**: The id of the HTML element that we want to connect our Vue object
