@@ -98,6 +98,23 @@ Filters are a way to transform output in to the template (`ONLY THE OUTPUT NOT D
 
 One use case for filters is to make a string to show as uppercase.
 
+#### Declaring Filters
+There are two ways to declare filters: *Globally* or *Locally*
+
+* **Globally**: To declare a global filter, we have to add it in `main.js`. Then, using Vue object, we use the property `filter`. First parameter represents the name of the filter, second is a callback function that you MUST pass value as a parameter.
+
+Example: ``Vue.filter('filter-name', function(value){})`
+
+* **Locally**: To declare a local filter, in the `export default` on a Vue component, we declare a new filter in the `filters` property.
+
+Example: ``` filters: { 
+  filterName(value) {
+    //Code
+  }
+}```
+
+* We can chain filters one behind an another, the filter takes the result of what's behind it as an input.
+
 ## Properties
 
 - **el**: The id of the HTML element that we want to connect our Vue object
@@ -105,6 +122,8 @@ One use case for filters is to make a string to show as uppercase.
 - **methods**: Declares all our methods that we can use from our Vue object
 - **computed**: Declares methods that are called when it's necessary. It accepts only Synchronous code
 - **watch**: Like observer, watches the changes of a data and call a function that we declare on watch block. Can call asynchronous code
+- **directives**: Declaring a new custom directive in a local scope 
+- **filters**: To add a new filter for local scope.
 
 ## Events
 
