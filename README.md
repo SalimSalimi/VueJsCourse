@@ -121,6 +121,8 @@ Example: ``` filters: {
 When we have a shared properties with some components, we can declare a mixin in a js file and export. Then we import like a normal component. To use it, we should declare it in `mixins` property of a component which is an array. Example: `import { mixin } from './mixin.js` then in property: 
 `mixins: ['mixin']`.
 
+* We can also create a global mixin with: `Vue.mixin({})` but it's not recommended to use it.
+
 ## Properties
 
 - **el**: The id of the HTML element that we want to connect our Vue object
