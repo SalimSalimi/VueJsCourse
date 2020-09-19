@@ -457,6 +457,8 @@ While mixing both transitions and animations, we can have a problem of synchroni
 
 Example: `<transition name="name" type"animation">`: This will tell to end all whenever the animation would end.
 
+* To start an animation or transition when the page is load, we can add a key to the `<transition>` tag which is : `appear`. This will start the animation when the page is loaded. `<transition name="name" appear>`.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
