@@ -15,6 +15,12 @@
       <transition name="fade" appear>
         <div class="alert alert-info" v-if="show">This is some info</div>  
       </transition>
+      <transition 
+          enter-active-class="animate__animated animate__bounce"
+          leave-active-class="animate__animated animate__shakeX"
+        >
+        <div class="alert alert-info" v-if="show">This is some info</div>  
+      </transition>
     </div>
   </div>
 </template>
