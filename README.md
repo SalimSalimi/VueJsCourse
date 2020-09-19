@@ -444,7 +444,7 @@ When only one button is present in a form, it's automatically considered as "Sub
 To handle submit, we simply add `@click` event on the button and by default it's submitted to the server. To prevent that, we add `prevent` option to the event: `@click.prevent="methodName"`.
 
 ## Animations & Transitions
-### Animations
+
 To animate an element, we have wrap ip inside of a `<transition></transition>` tag. Important thing, we **MUST** use ONLY one element inside it.
 
 Animations depends on a condition or v-show (for toggling it). It has 4 states:
@@ -453,6 +453,9 @@ Animations depends on a condition or v-show (for toggling it). It has 4 states:
 
 We should '*' indicate the `name` attribut on the `<transition>` (`<transition name="name">) which will be used for every state. Then, by using the conditions to show or no, Vue will know when to toggle the CSS classes.
 
+While mixing both transitions and animations, we can have a problem of synchronisation. For example, an animation that moves a component and transition that fade it. The animation can finish before the transition (or the opposite) and would have an expected behavior. To avoid this problem of synchronisation, we can specify to end all by using `type` attribut on `<transition>` tag. This will tell which type to follow and to end up. 
+
+Example: `<transition name="name" type"animation">`: This will tell to end all whenever the animation would end.
 
 # Moving to real development workflow with Webpack and VueCLI
 
