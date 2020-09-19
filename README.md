@@ -443,6 +443,17 @@ Behind the scenes, when we bind a variable using v-model on an input, it does 2 
 When only one button is present in a form, it's automatically considered as "Submit" button.
 To handle submit, we simply add `@click` event on the button and by default it's submitted to the server. To prevent that, we add `prevent` option to the event: `@click.prevent="methodName"`.
 
+## Animations & Transitions
+### Animations
+To animate an element, we have wrap ip inside of a `<transition></transition>` tag. Important thing, we **MUST** use ONLY one element inside it.
+
+Animations depends on a condition or v-show (for toggling it). It has 4 states:
+
+![Transition states]()
+
+We should '*' indicate the `name` attribut on the `<transition>` (`<transition name="name">) which will be used for every state. Then, by using the conditions to show or no, Vue will know when to toggle the CSS classes.
+
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
