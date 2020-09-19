@@ -53,7 +53,7 @@
         @leave-cancelled="leaveCancelled"
         :css="false"
         >
-        <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div>
+        <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
       </transition>
     </div>
   </div>
@@ -65,16 +65,27 @@ export default {
     return {
       show: false,
       load: true,
-      alertAnimation: 'fade'
+      alertAnimation: 'fade',
+      elementWidth: 100
     }
   },
   methods: {
     beforeEnter(element) {
       console.log("Before Enter " + element);
+      this.elementWidth = 100;
+      element.style.width = 100 + 'px';
     },
     enter(element, done) {
       console.log('enter');
-      done();
+      let round = 1;
+      const interval = setInterval(() => {
+        element.style.width = ( this.elementWidth + round * 10 ) + 'px';
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
     },
     afterEnter(element) {
       console.log("After entered " + element);
@@ -82,12 +93,22 @@ export default {
     enterCancelled(element) {
       console.log("enter Cancelled" + element);
     },
-    beforeLeave(elemement) {
-      console.log("before leave" + elemement);
+    beforeLeave(element) {
+      console.log("before leave");
+      this.elementWidth = 300;
+      element.style.width = this.elementWidth +'px';
     },
     leave(element, done) {
       console.log("leave");
-      done();
+      let round = 1;
+      const interval = setInterval(() => {
+        element.style.width = ( this.elementWidth - round * 10 ) + 'px';
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
     },
     afterLeave(elemement){
       console.log("after Leave" + elemement);

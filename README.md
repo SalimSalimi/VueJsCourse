@@ -489,6 +489,8 @@ Every method receives `element` as an argument which represents the element itse
 
 * We can tell to Vue to not skip or to not check for a CSS class (Usefull especially when we are sure we will not use a CSS class) by using the attribut `css` and set it to `false`: `<template :css="false">`.
 
+* For JS animations, we mostly use `enter` or `leave` functions to achieve it.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
