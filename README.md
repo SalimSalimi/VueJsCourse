@@ -445,7 +445,7 @@ To handle submit, we simply add `@click` event on the button and by default it's
 
 ## Animations & Transitions
 
-To animate an element, we have wrap ip inside of a `<transition></transition>` tag. Important thing, we **MUST** use ONLY one element inside it.
+To animate an element, we have wrap ip inside of a `<transition></transition>` tag. Important thing, we **MUST** ONLY show ONE element at a time.
 
 Animations depends on a condition or v-show (for toggling it). It has 4 states:
 
@@ -464,6 +464,16 @@ We can rename CSS class that are attributed by default (for example**-enter-acti
 
 #### Dynamic Names & Attributes
 We can specify dynamically an attribute name by binding it `:name="variable` instead of `name="name"`. Works also for default class names.
+
+#### Transition & Animation with 2 elements in the same transation
+We can declare two elements inside of `<transition>` tag but we can only show one at a time. But on this case, we MUST not use `v-show` and we use only `v-if` or `v-if` & `v-else`.
+The animation can be messy dependant on your case because VueJS doesn't know that those elements are two differents. To differentiate them, we add attribut `key` for every element inside of transition (like a unique ID).
+
+##### Transition Mode
+Transition mode sets how the animation or transition order of the elements should be set. There are two modes:
+
+* **out-in**: The element that is going out is first executed then the element that is coming it will be shown.
+* **in-out**: The element in will be show first then the element out will be hidden.
 
 # Moving to real development workflow with Webpack and VueCLI
 

@@ -31,6 +31,13 @@
       <transition :name="alertAnimation">
         <div class="alert alert-info" v-if="show">This is some info</div>  
       </transition>
+      <br>
+      <hr>
+      <h1>Transtion between two elements</h1>
+      <transition :name="alertAnimation" mode="in-out">
+        <div class="alert alert-info" v-if="show" key="info">This is some info</div>  
+        <div class="alert alert-warning" v-else key="warning">This is a warning</div>  
+      </transition>
     </div>
   </div>
 </template>
