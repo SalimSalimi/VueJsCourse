@@ -21,6 +21,16 @@
         >
         <div class="alert alert-info" v-if="show">This is some info</div>  
       </transition>
+      <br>
+      <h1>Dynamic changing class</h1>
+      <select v-model="alertAnimation" class="form-control">
+        <option value="fade">Fade</option>
+        <option value="slide">Slide</option>
+      </select>
+      <br>
+      <transition :name="alertAnimation">
+        <div class="alert alert-info" v-if="show">This is some info</div>  
+      </transition>
     </div>
   </div>
 </template>
@@ -29,7 +39,8 @@
 export default {
   data () {
     return {
-      show: true
+      show: true,
+      alertAnimation: 'fade'
     }
   }
 };

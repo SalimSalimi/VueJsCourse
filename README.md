@@ -459,8 +459,11 @@ Example: `<transition name="name" type"animation">`: This will tell to end all w
 
 * To start an animation or transition when the page is load, we can add a key to the `<transition>` tag which is : `appear`. This will start the animation when the page is loaded. `<transition name="name" appear>`.
 
-* We can rename CSS class that are attributed by default (for example**-enter-active*) by assigning the value of the class directly in to the `<transition>` by: `<transition enter-active-class="css classname">`.
+#### Changing Default Class Name
+We can rename CSS class that are attributed by default (for example**-enter-active*) by assigning the value of the class directly in to the `<transition>` by: `<transition enter-active-class="css classname">`.
 
+#### Dynamic Names & Attributes
+We can specify dynamically an attribute name by binding it `:name="variable` instead of `name="name"`. Works also for default class names.
 
 # Moving to real development workflow with Webpack and VueCLI
 
