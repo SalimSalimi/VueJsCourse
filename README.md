@@ -475,6 +475,18 @@ Transition mode sets how the animation or transition order of the elements shoul
 * **out-in**: The element that is going out is first executed then the element that is coming it will be shown.
 * **in-out**: The element in will be show first then the element out will be hidden.
 
+### Transition & Animations with Javascript
+
+#### Transition JS Hooks
+As we saw before, there is a kind of hooks for CSS classes while using transition. There is a similar concept for Javascript as shown below:
+
+![Transition JS Hooks](https://raw.githubusercontent.com/SalimSalimi/VueJsCourse/master/Images/transitions-js-hooks.png)
+
+#### Using the Hooks
+To use one of the hooks with Javascript, we have to bind event hooks to a JS method on the `<transition>` tag like this: `<transition @beforeEnter="method">`.
+
+Every method receives `element` as an argument which represents the element itself. Also, the two methods `enter` and `leave` receive a function `done()` that we must call to continue the execution of the animation (It's can be usefull if we do for example some Asynchronous job). Although, if a CSS class was hooked to the animation, this method will be called automatically.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
