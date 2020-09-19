@@ -491,6 +491,9 @@ Every method receives `element` as an argument which represents the element itse
 
 * For JS animations, we mostly use `enter` or `leave` functions to achieve it.
 
+### Animating a Component
+As a normal div, it works exactly the same. A simple trick to switch between components is to use the `is` attribute on `<component>` tag: `<component :is="name-of-component>"` 
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
