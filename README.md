@@ -487,6 +487,8 @@ To use one of the hooks with Javascript, we have to bind event hooks to a JS met
 
 Every method receives `element` as an argument which represents the element itself. Also, the two methods `enter` and `leave` receive a function `done()` that we must call to continue the execution of the animation (It's can be usefull if we do for example some Asynchronous job). Although, if a CSS class was hooked to the animation, this method will be called automatically.
 
+* We can tell to Vue to not skip or to not check for a CSS class (Usefull especially when we are sure we will not use a CSS class) by using the attribut `css` and set it to `false`: `<template :css="false">`.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
