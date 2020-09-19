@@ -25,18 +25,19 @@ export default {
 
 <style>
   .fade-enter {
-
+    opacity: 0;
   }
 
   .fade-enter-active {
-
+    transition: opacity 1s;
   }
 
-  .leave-enter {
-
+  .fade-leave {
+    /* by default it's opacity:1*/
   }
 
-  .leave-enter-active {
-
+  .fade-leave-active {
+    transition: opacity 1s;
+    opacity: 0;
   }
 </style>

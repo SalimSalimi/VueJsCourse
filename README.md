@@ -449,7 +449,7 @@ To animate an element, we have wrap ip inside of a `<transition></transition>` t
 
 Animations depends on a condition or v-show (for toggling it). It has 4 states:
 
-![Transition states]()
+![Transition states](https://raw.githubusercontent.com/SalimSalimi/VueJsCourse/master/Images/transitions-css.png)
 
 We should '*' indicate the `name` attribut on the `<transition>` (`<transition name="name">) which will be used for every state. Then, by using the conditions to show or no, Vue will know when to toggle the CSS classes.
 
