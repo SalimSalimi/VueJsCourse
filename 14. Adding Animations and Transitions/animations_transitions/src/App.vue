@@ -1,99 +1,121 @@
 <template>
   <div class="container">
-    <div
-      class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <h1>Animations & Transitions</h1>
-      <hr>
+      <hr />
       <button class="btn btn-primary" @click="show = !show">Show Alert</button>
-      <br><br>
+      <br />
+      <br />
       <transition name="fade">
-        <div class="alert alert-info" v-show="show">This is some info</div>  
+        <div class="alert alert-info" v-show="show">This is some info</div>
       </transition>
       <transition name="slide" type="animation">
-        <div class="alert alert-info" v-if="show">This is some info</div>  
+        <div class="alert alert-info" v-if="show">This is some info</div>
       </transition>
       <transition name="fade" appear>
-        <div class="alert alert-info" v-if="show">This is some info</div>  
+        <div class="alert alert-info" v-if="show">This is some info</div>
       </transition>
-      <transition 
-          enter-active-class="animate__animated animate__bounce"
-          leave-active-class="animate__animated animate__shakeX"
-        >
-        <div class="alert alert-info" v-if="show">This is some info</div>  
+      <transition
+        enter-active-class="animate__animated animate__bounce"
+        leave-active-class="animate__animated animate__shakeX"
+      >
+        <div class="alert alert-info" v-if="show">This is some info</div>
       </transition>
-      <br>
+      <br />
       <h1>Dynamic changing class</h1>
       <select v-model="alertAnimation" class="form-control">
         <option value="fade">Fade</option>
         <option value="slide">Slide</option>
       </select>
-      <br>
+      <br />
       <transition :name="alertAnimation">
-        <div class="alert alert-info" v-if="show">This is some info</div>  
+        <div class="alert alert-info" v-if="show">This is some info</div>
       </transition>
-      <br>
-      <hr>
+      <br />
+      <hr />
       <h1>Transtion between two elements</h1>
       <transition :name="alertAnimation" mode="in-out">
-        <div class="alert alert-info" v-if="show" key="info">This is some info</div>  
-        <div class="alert alert-warning" v-else key="warning">This is a warning</div>  
+        <div class="alert alert-info" v-if="show" key="info">This is some info</div>
+        <div class="alert alert-warning" v-else key="warning">This is a warning</div>
       </transition>
-      <hr>
-      <br><br>
+      <hr />
+      <br />
+      <br />
       <button class="btn btn-primary" @click="load = !load">Load/ Remove Element</button>
       <transition
         @before-enter="beforeEnter"
         @enter="enter"
         @after-enter="afterEnter"
         @enter-cancelled="enterCancelled"
-        
         @before-leave="beforeLeave"
         @leave="leave"
         @after-leave="afterLeave"
         @leave-cancelled="leaveCancelled"
         :css="false"
-        >
+      >
         <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
       </transition>
-      <hr>
-      <button class="btn btn-primary" 
+      <hr />
+      <button
+        class="btn btn-primary"
         @click="selectedComponent == 'app-success-alert' ? 
           selectedComponent = 'app-danger-alert': 
-          selectedComponent = 'app-success-alert'">Toogle components</button>
+          selectedComponent = 'app-success-alert'"
+      >Toogle components</button>
 
-      <br>
+      <br />
       <transition name="fade" mode="out-in">
         <component :is="selectedComponent"></component>
       </transition>
+      <hr />
+      <br />
+      <button class="btn btn-primary" @click="addItem">Add Item</button>
+      <br />
+      <br />
+      <ul class="list-group">
+        <transition-group name="slide">
+          <li
+            class="list-group-item"
+            v-for="(number, index) in numbers"
+            @click="removeItem(index)"
+            style="curser pointer"
+            :key="number"
+          >{{ number }}</li>
+        </transition-group>
+      </ul>
+      <br />
+      <br />
+      <br />
     </div>
   </div>
 </template>
 
 <script>
-import SuccessComp from './components/SuccessComp.vue';
-import DangerComp from './components/DangerComp.vue';
+import SuccessComp from "./components/SuccessComp.vue";
+import DangerComp from "./components/DangerComp.vue";
 
 export default {
-  data () {
+  data() {
     return {
       show: false,
       load: true,
-      alertAnimation: 'fade',
+      alertAnimation: "fade",
       elementWidth: 100,
-      selectedComponent: 'app-alert-danger'
-    }
+      selectedComponent: "app-alert-danger",
+      numbers: [1, 2, 3, 4, 5],
+    };
   },
   methods: {
     beforeEnter(element) {
       console.log("Before Enter " + element);
       this.elementWidth = 100;
-      element.style.width = 100 + 'px';
+      element.style.width = 100 + "px";
     },
     enter(element, done) {
-      console.log('enter');
+      console.log("enter");
       let round = 1;
       const interval = setInterval(() => {
-        element.style.width = ( this.elementWidth + round * 10 ) + 'px';
+        element.style.width = this.elementWidth + round * 10 + "px";
         round++;
         if (round > 20) {
           clearInterval(interval);
@@ -110,13 +132,13 @@ export default {
     beforeLeave(element) {
       console.log("before leave");
       this.elementWidth = 300;
-      element.style.width = this.elementWidth +'px';
+      element.style.width = this.elementWidth + "px";
     },
     leave(element, done) {
       console.log("leave");
       let round = 1;
       const interval = setInterval(() => {
-        element.style.width = ( this.elementWidth - round * 10 ) + 'px';
+        element.style.width = this.elementWidth - round * 10 + "px";
         round++;
         if (round > 20) {
           clearInterval(interval);
@@ -124,73 +146,83 @@ export default {
         }
       }, 20);
     },
-    afterLeave(elemement){
+    afterLeave(elemement) {
       console.log("after Leave" + elemement);
     },
-    leaveCancelled(elemement){
+    leaveCancelled(elemement) {
       console.log("leave cancelled" + elemement);
-    }
+    },
+    addItem() {
+      const pos = Math.floor(Math.random() * this.numbers.length);
+      this.numbers.splice(pos, 0, this.numbers.length + 1);
+    },
+    removeItem(index) {
+      this.numbers.splice(index, 1);
+    },
   },
   components: {
     appDangerAlert: DangerComp,
-    appSuccessAlert: SuccessComp
-  }
+    appSuccessAlert: SuccessComp,
+  },
 };
 </script>
 
 <style>
-  .fade-enter {
-    opacity: 0;
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 1s;
+}
+
+.fade-leave {
+  /* by default it's opacity:1*/
+}
+
+.fade-leave-active {
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+.slide-enter {
+  opacity: 0;
+}
+
+.slide-enter-active {
+  animation: slide-in 1s ease-out forwards;
+  transition: opacity 3s;
+}
+
+.slide-leave {
+}
+
+.slide-leave-active {
+  animation: slide-out 1s ease-out forwards;
+  transition: opacity 1s;
+  opacity: 0;
+  position: absolute;
+}
+
+.slide-move {
+  transition: transform 1s;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
   }
-
-  .fade-enter-active {
-    transition: opacity 1s;
+  to {
+    transform: translateY(0px);
   }
+}
 
-  .fade-leave {
-    /* by default it's opacity:1*/
+@keyframes slide-out {
+  from {
+    transform: translateY(0px);
   }
-
-  .fade-leave-active {
-    transition: opacity 1s;
-    opacity: 0;
+  to {
+    transform: translateY(20px);
   }
-
-  .slide-enter {
-    opacity: 0;
-  }
-
-  .slide-enter-active {
-    animation: slide-in 1s ease-out forwards;
-    transition: opacity 3s;
-  }
-
-  .slide-leave {
-
-  }
-
-  .slide-leave-active {
-      animation: slide-out 1s ease-out forwards;
-      transition: opacity 3s;
-      opacity: 0;
-  }
-
-  @keyframes slide-in {
-    from {
-      transform: translateY(20px);
-    }
-    to {
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes slide-out {
-    from {
-      transform: translateY(0px);
-    }
-    to {
-      transform: translateY(20px);
-    }
-  }
-
+}
 </style>

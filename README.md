@@ -494,6 +494,12 @@ Every method receives `element` as an argument which represents the element itse
 ### Animating a Component
 As a normal div, it works exactly the same. A simple trick to switch between components is to use the `is` attribute on `<component>` tag: `<component :is="name-of-component>"` 
 
+### Animating A List
+For animating a list, instead of using `<transition>`, we use `<transition-list>`. It works exactly the same as `<transition>`. Therefore, the small difference is we must bind `key` attribut to distinguish every element and make them unique. Also, it adds a new hook for the components called `*-move`. This hook is attached for every element of the list whenever we add/delete them. 
+
+* Difference between `<transition>` and `<transition-list>` is that `<transition>` is not rendered to the DOM. `<transition-list>` is rendered as `<span>` by default but we can change it by using attribute `tag`: 
+`<transition-list tag="TAG">`.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
