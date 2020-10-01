@@ -453,13 +453,27 @@ For sending HTTP requests:
 ### Sending POST requests
 To send POST request with `fetch`, we have to specify: The URL, the Header (Content-Type) and the body (which contains the data).
 
-`` fetch(URL, {
+``` 
+fetch(URL, {
   method: "POST",
   headers: {
     'Content-Type': "application/json"
   },
   body: (data in JSON)
-}) ``
+}) 
+```
+
+### Sending GET requests
+For sending a GET request, we use also `fetch` method and specify: The URL. It returns a Promise with `response` object. We can check whether we have data on our response using `response.ok` and then access data returned as JSON with `response.json()`. This will also return a Promise with `data` parameter.
+*We can use `function(response)` but while using it, we can not access to the context and using data from `data` object.*
+
+```
+fetch(URL).then(response => {
+  if(response.ok) {
+    return response.json()
+  }
+}).then(data => {})
+```
 
 ## Animations & Transitions
 
