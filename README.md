@@ -443,6 +443,24 @@ Behind the scenes, when we bind a variable using v-model on an input, it does 2 
 When only one button is present in a form, it's automatically considered as "Submit" button.
 To handle submit, we simply add `@click` event on the button and by default it's submitted to the server. To prevent that, we add `prevent` option to the event: `@click.prevent="methodName"`.
 
+## Sending HTTP requests
+Important note about sending requests with Vue: When we submit a form, it automatically sends a request to the local server. To prevent that, we add on the form tag `prevent` keyword to the `submit` event: `<form @submit.prevent="method_to_execute">`.
+
+For sending HTTP requests:
+* We can use a third party packages (Most popular is **AXIOS**).
+* We can use built-in functions of the browser with method `fetch()`.
+
+### Sending POST requests
+To send POST request with `fetch`, we have to specify: The URL, the Header (Content-Type) and the body (which contains the data).
+
+`` fetch(URL, {
+  method: "POST",
+  headers: {
+    'Content-Type': "application/json"
+  },
+  body: (data in JSON)
+}) ``
+
 ## Animations & Transitions
 
 To animate an element, we have wrap ip inside of a `<transition></transition>` tag. Important thing, we **MUST** ONLY show ONE element at a time.

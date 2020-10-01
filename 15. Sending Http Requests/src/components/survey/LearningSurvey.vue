@@ -55,11 +55,21 @@ export default {
       }
       this.invalidInput = false;
 
-      this.$emit('survey-submit', {
-        userName: this.enteredName,
-        rating: this.chosenRating,
+      fetch("https://vue-survey-project-5dacf.firebaseio.com/surveys.json", {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: this.enteredName,
+          rating: this.chosenRating
+        })
       });
 
+      /*this.$emit('survey-submit', {
+        userName: this.enteredName,
+        rating: this.chosenRating,
+      });*/
       this.enteredName = '';
       this.chosenRating = null;
     },
