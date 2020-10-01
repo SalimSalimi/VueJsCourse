@@ -475,6 +475,9 @@ fetch(URL).then(response => {
 }).then(data => {})
 ```
 
+#### Showing data when the component is loaded
+We override method `mounted()` and call our method that fetches the data inside. 
+
 ## Animations & Transitions
 
 To animate an element, we have wrap ip inside of a `<transition></transition>` tag. Important thing, we **MUST** ONLY show ONE element at a time.
