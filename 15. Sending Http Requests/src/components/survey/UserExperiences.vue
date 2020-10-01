@@ -6,6 +6,7 @@
         <base-button @click="loadExperiences">Load Submitted Experiences</base-button>
       </div>
       <p v-if="isLoading">Loading...</p>
+      <p v-else-if="!isLoading && errorMsg">{{ errorMsg }}</p>
       <p v-else-if="!isLoading && (!results || results.length === 0)">No stored experiences found. Start to create new ones.</p>
       <ul v-else-if="!isLoading && results && results.length > 0">
         <survey-result
@@ -29,7 +30,8 @@ export default {
   data() {
     return {
       results: [],
-      isLoading: false
+      isLoading: false,
+      errorMsg: ""
     }
   },
   methods: {
@@ -49,8 +51,11 @@ export default {
             rating: data[id].rating
           });
           this.results = results;
-
         }
+      }).catch(error => {
+        console.log(error);
+        this.isLoading = false;
+        this.errorMsg = "Sorry, something went wrong!"
       });
     }
   },
