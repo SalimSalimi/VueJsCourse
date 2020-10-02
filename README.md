@@ -554,8 +554,13 @@ First, we have to import `createRouter` from `vue-router` package on `main.js`. 
 
 After registering our routes, we must tell to `app` to use our router with: `app.use(route`).
 
-Then, in our vue file, Vue will create a new component called `router-vue`. This will tell where to display our components according to the link.
+Then, in our Vue file, Vue will create a new component called `router-view`. This will tell where to display our components according to the link.
 
+### Using router-link
+`router-link` is a way for creating redirection and navigate between components without reloading all the page (Avoiding data loss for example). This component is shipped with `vue-router`. It useful with navigation components for example.
+
+To use it:
+* We have to use `router-link` component and specify where it should redirect using `to`: `<router-link to="/route">Name of the route<router-link>`. 
 
 # Moving to real development workflow with Webpack and VueCLI
 
