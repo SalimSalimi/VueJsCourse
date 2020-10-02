@@ -547,7 +547,15 @@ Routing is a way to create "multiple-page like" by using multiple SP. To use it 
 First, we have to import `createRouter` from `vue-router` package on `main.js`. We instanciate it and create a new JSON object that has as property:
 
 * **routes**: An array of all routes for our app, we have to specify:
+  * **Path**: Represents the path that will be used for loading the component.
+  * **Component**: Represents the components which will be loaded.
+  * **Name**: Represents an optional name that we can refer to them after.
 * **history**: This property is important, it tells to JavaScript how to handle history in case a user want to return back for example. For using it, we have to import `createWebHistory` from `vue-router` then assign to the property `createWebHistory`. This will tell to JS to handle history like the browser would do it. 
+
+After registering our routes, we must tell to `app` to use our router with: `app.use(route`).
+
+Then, in our vue file, Vue will create a new component called `router-vue`. This will tell where to display our components according to the link.
+
 
 # Moving to real development workflow with Webpack and VueCLI
 
