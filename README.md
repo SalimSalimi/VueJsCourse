@@ -559,8 +559,17 @@ Then, in our Vue file, Vue will create a new component called `router-view`. Thi
 ### Using router-link
 `router-link` is a way for creating redirection and navigate between components without reloading all the page (Avoiding data loss for example). This component is shipped with `vue-router`. It useful with navigation components for example.
 
+This component is originaly just an `<a>` tag.
 To use it:
 * We have to use `router-link` component and specify where it should redirect using `to`: `<router-link to="/route">Name of the route<router-link>`. 
+
+#### Styling router-link
+While using router-link tag (which is an `<a>` tag). It provides us two CSS classes:
+
+* **router-link-active**: It applies whenever we click the component, also it applies all to the subpath. Example: with `/teams` routes, it will also applies for `/teams/new`.
+* **router-link-exact-active**: It applies whenever we click the component, difference it applies only for the current active path. Example: with `/teams` it will not apply for subpath like `/teams/new`.
+
+We can also rename those classes in the `router` configuration with: `linkActiveClass`/`linkActiveExactClass` and give a string name.
 
 # Moving to real development workflow with Webpack and VueCLI
 
