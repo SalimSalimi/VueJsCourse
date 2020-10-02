@@ -571,6 +571,9 @@ While using router-link tag (which is an `<a>` tag). It provides us two CSS clas
 
 We can also rename those classes in the `router` configuration with: `linkActiveClass`/`linkActiveExactClass` and give a string name.
 
+### Navigate programatically
+To navigate using code, we can access to the `router` object using `this` with: `this.$router`. Then we use the method `push(/routeName)` to redirect to the *routeName*: `this.$router('/routeName')`. 
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.

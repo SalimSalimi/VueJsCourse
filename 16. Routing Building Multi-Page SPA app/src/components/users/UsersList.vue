@@ -1,7 +1,10 @@
 <template>
-  <ul>
-    <user-item v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></user-item>
-  </ul>
+  <div>
+    <button @click="renderTeams">Render Teams</button>
+    <ul>
+      <user-item v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></user-item>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -12,6 +15,11 @@ export default {
     UserItem,
   },
   inject: ['users'],
+  methods: {
+    renderTeams() {
+      this.$router.push("/teams");
+    }
+  }
 };
 </script>
 
