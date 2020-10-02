@@ -587,6 +587,9 @@ To pass a parameter for a route, we have to registered and give a name to the pa
 
 To get a parameter, we have to use `route` like this: `this.$route.params.param1`.
 
+### Dynamic navigating with parameters
+To navigate accordingly a parameter, instead of using `to` with `router-link`, we will bind it to interpret it in JS: `:to="'routeName/' + param1"` *(equivalent to v-bind:to..)*. Or we can call a function that returns the value etc.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
