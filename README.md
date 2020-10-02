@@ -535,6 +535,20 @@ For animating a list, instead of using `<transition>`, we use `<transition-list>
 * Difference between `<transition>` and `<transition-list>` is that `<transition>` is not rendered to the DOM. `<transition-list>` is rendered as `<span>` by default but we can change it by using attribute `tag`: 
 `<transition-list tag="TAG">`.
 
+# Single Page Application
+A single page application is a web app that contains only one html page (index.html) while other pages are being shown and rendered using Javascript.
+
+Benefits of using this kind of development is making the server less prone to be called everytime a user navigate through out the app. Thus, it can create an issue. The issue is that link will be the same for all of the web app. For example: A user is in the login page and can navigate to an another page. The link for the pages will be the same and the user can not share the link of the other page directly. This problem has a solution, and it's called **Routing**.
+
+## Routing
+Routing is a way to create "multiple-page like" by using multiple SP. To use it with Vue, we have to install package: `vue-router@next` with npm.
+
+### How to use vue-router
+First, we have to import `createRouter` from `vue-router` package on `main.js`. We instanciate it and create a new JSON object that has as property:
+
+* **routes**: An array of all routes for our app, we have to specify:
+* **history**: This property is important, it tells to JavaScript how to handle history in case a user want to return back for example. For using it, we have to import `createWebHistory` from `vue-router` then assign to the property `createWebHistory`. This will tell to JS to handle history like the browser would do it. 
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
