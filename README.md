@@ -380,6 +380,12 @@ We can pass differents slots at the same time by giving them a name. To achieve 
 * If we don't assign a name to a slot (for both parent and child side), it will render the content on that slot.
 * We can also define a default value (or slot) if we don't receive the slot from the parent by adding the content between `slot` tag on the child side.
 
+#### Communication with provide and inject
+When we have a complex arborescence of components, passing data might be complex. We can provide data from parent to the farest child using `provide` and `inject`.
+
+* In parent side, we have to create a method named `provid()` and this method will return the data that we want to send to the childs.
+* From children side, now to get the data, we need to use a property named `inject`. It's an array that contain the name of the data provided by the parent.
+
 ### Dynamic Components
 
 In order to switch between multiple components dynamically:
@@ -573,6 +579,13 @@ We can also rename those classes in the `router` configuration with: `linkActive
 
 ### Navigate programatically
 To navigate using code, we can access to the `router` object using `this` with: `this.$router`. Then we use the method `push(/routeName)` to redirect to the *routeName*: `this.$router('/routeName')`. 
+
+### Dynamic route parameters
+To pass a parameter for a route, we have to registered and give a name to the parameter like: `routeName/:param1`.
+
+**IMPORTANT**: Always register static routes before dynamic ones.
+
+To get a parameter, we have to use `route` like this: `this.$route.params.param1`.
 
 # Moving to real development workflow with Webpack and VueCLI
 
