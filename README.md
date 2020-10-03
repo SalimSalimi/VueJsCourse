@@ -590,6 +590,17 @@ To get a parameter, we have to use `route` like this: `this.$route.params.param1
 ### Dynamic navigating with parameters
 To navigate accordingly a parameter, instead of using `to` with `router-link`, we will bind it to interpret it in JS: `:to="'routeName/' + param1"` *(equivalent to v-bind:to..)*. Or we can call a function that returns the value etc.
 
+### Updating parameters with watchers
+Because JS is caching the pages so is not rebuilding everytime, it can create an issue. For example, we are on the page `/teams/t1`, we provide a link to go to `t2`. Because of this behavior, it will not rebuild the page for `t2` (because it doesn't execute `created()` method lifecycle). So to make it work, we have to "watch" the `$route` property by creating a new `watch` property.
+Example: 
+```
+watch: {
+  $route(newRoute) {
+    doSomething()
+  }
+}
+```
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
