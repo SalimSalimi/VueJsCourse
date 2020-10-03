@@ -615,6 +615,15 @@ Using Router, there is 2 ways of redirecting while configuring the router and ro
 ### Catching unmatched routes
 When a user type a URL that doesn't exist in our app, it's better to redirect him on an Error page (or whatever). To catch all the routes, we need to defined a special route in our router, the path that we would specify would look like this: `/:notFound(.*)`. `notFound` is up to us to give it a name. `(.*)` is a regular expression. Then we can redirect or show a component like a normal route. 
 
+### Nested routes
+Nested routes is useful when it comes to create complex views and load multiple components which are connected together a based on different components and URLs. For example, in our case, loading the team members on the same page of team lists. This can be done by using nested routes. To use it, we have to add the array property `children` for the parent path. Example
+```
+  {path:"/teams", component..., children: [{
+    path:"/:teamId", component:..}]
+  }}
+```
+Now, the `/:teamId` root will be `/teams`, not `/` anymore. So to load components of the children, we have to add `<router-view>` tag on the parent view.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
