@@ -612,6 +612,9 @@ Using Router, there is 2 ways of redirecting while configuring the router and ro
 
 * The difference between them is that redirect changes the URL, alias doesn't.
 
+### Catching unmatched routes
+When a user type a URL that doesn't exist in our app, it's better to redirect him on an Error page (or whatever). To catch all the routes, we need to defined a special route in our router, the path that we would specify would look like this: `/:notFound(.*)`. `notFound` is up to us to give it a name. `(.*)` is a regular expression. Then we can redirect or show a component like a normal route. 
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
