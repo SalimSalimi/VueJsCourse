@@ -629,6 +629,15 @@ In bigger applications, we can have dozens of multiple routes and this can be re
 
 * For routes that uses params, we have to create a new object that will be binded to `:to` of `<router-link>`. This object will have two properties: `name`: represents the of the component. `params`: represents parameters of the route.
 
+### Attach query params
+To attach a query params to send to a route, we only add a property `query` on the object that we are using on `router-link` by binding it on `:to`:
+```
+query: {
+  param1: value
+}
+```
+To get the query parameter, we access it using `this.$route.query`.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
