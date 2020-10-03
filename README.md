@@ -601,6 +601,9 @@ watch: {
 }
 ```
 
+### Sending data using props
+Sometimes, using components and relying on `$route` adresses some issues and make it not reusable. To fix this, we can send data using `props`. But by default, when we use route, it doesn't pass propos between components, to change it, we have to set `props:true` on the configuration of the route.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
