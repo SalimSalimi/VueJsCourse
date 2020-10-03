@@ -679,7 +679,16 @@ router.beforeEach(to, from, next) {
 ### afterEach
 This hooks `afterEach` is called everytime after the navigation has been done. The difference is that we don't have `next` params because the navigation has already been done. This can be usefull for analytics purpose for example.
 
+### Metadata
+We can use some "metadata" to store any kind of data in a route(For example if the user is authenticated). This data can be accessed with `this.$route` or within navigation guard (using `to` or `from`).
 
+To create it, we defind the property `meta` in the configuration route.
+```
+{
+  path:"/path",
+  meta: (anydata)
+}
+```
 
 # Moving to real development workflow with Webpack and VueCLI
 
