@@ -604,6 +604,14 @@ watch: {
 ### Sending data using props
 Sometimes, using components and relying on `$route` adresses some issues and make it not reusable. To fix this, we can send data using `props`. But by default, when we use route, it doesn't pass propos between components, to change it, we have to set `props:true` on the configuration of the route.
 
+### Redirections
+Using Router, there is 2 ways of redirecting while configuring the router and routes:
+
+* **redirect**: This property is added whenever we match the selected route and redirects to the value of `redirect` property. Example: `{ path: "/", redirect:"/route"}`. Whenever the user goes to `/`. He gets redirected to `/route`.
+* **alias**: This property creates an alias for where its set. Example: `{path:"/route", alias:"/routeA"}`. If the user goes to `routeA`, he will get redirected to `route`.
+
+* The difference between them is that redirect changes the URL, alias doesn't.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
