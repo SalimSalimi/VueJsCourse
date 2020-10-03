@@ -624,6 +624,11 @@ Nested routes is useful when it comes to create complex views and load multiple 
 ```
 Now, the `/:teamId` root will be `/teams`, not `/` anymore. So to load components of the children, we have to add `<router-view>` tag on the parent view.
 
+### Loading using name and objects
+In bigger applications, we can have dozens of multiple routes and this can be really problematic when it comes to handling routes path. Especially when we have to change the path for a route, we have to update it everywhere on the app. We can get away from this inconvenience by using `name` property on the route. Instead of using `path` to get redirected, we will use the `name` property.
+
+* For routes that uses params, we have to create a new object that will be binded to `:to` of `<router-link>`. This object will have two properties: `name`: represents the of the component. `params`: represents parameters of the route.
+
 # Moving to real development workflow with Webpack and VueCLI
 
 In real development, at least for medium and big sized projects, serving file staticly is not a good idea. We have to use some kind of server for our app.
