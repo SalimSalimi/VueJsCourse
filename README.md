@@ -636,6 +636,8 @@ query: {
   param1: value
 }
 ```
+To get the query parameter, we access it using `this.$route.query`.
+
 
 ### Controlling Scrolling Behaviour
 To control the scrolling behaviour, we override the method `scrollingBehaviour` on the router configuration. It has 3 parameters:
@@ -655,7 +657,29 @@ We can render multiple view using multiple route on the same view by defining mu
 ```
 Then in our Vue, we use `<router-view name="compo1">` to show `ComponentVue`. We are allowed to not assign a name value for only one `<router-view>`. Its name is `default`.
 
-To get the query parameter, we access it using `this.$route.query`.
+### Navigation Guard
+Navigation is a way of controlling the navigation of the user on the web app. For example, to check if the user is authenticated before going to a page, or if he already filled the form etc.
+#### beforeEach
+This `beforeEach` is called everytime before the navigation occurs.
+
+To implement this, on the configuration of the router on `main.js`. We call the method `beforeEach` with parameters:
+
+* **to**: Page going to.
+* **from**: Page from where the user came.
+* **next**: Method that can allow/block the navigation. *(If set to false next(false), it blocks the routing). We can also specify a redirection like we do with `<router-link>`.
+```
+router.beforeEach(to, from, next) {
+  next(true)
+}
+```
+* If we want to implement this for a specific route: In the route configuration, we implement method `beforeEnter()`.
+* Also, there is another method that we call on the component which is part of the component lifecycle (If we are using router) called: `beforeRouteUpdate`(called when the component is reused and updated) & `beforeRouteEnter`.
+*All the methods works exactly the same way with same parameters*.
+
+### afterEach
+This hooks `afterEach` is called everytime after the navigation has been done. The difference is that we don't have `next` params because the navigation has already been done. This can be usefull for analytics purpose for example.
+
+
 
 # Moving to real development workflow with Webpack and VueCLI
 
