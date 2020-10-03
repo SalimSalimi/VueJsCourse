@@ -636,6 +636,17 @@ query: {
   param1: value
 }
 ```
+
+### Rendering multiple routes with named router views
+We can render multiple view using multiple route on the same view by defining multiple `<router-view>`. To distinct between `<router-view>`, we can give it a name by using `name` property: `<router-view name="footer">`. In our router configuration, where we define the routes and the components, we can define the property `components` (instead of component). This will be an object where we define the `name` property and the component that we want to show on that name. Example:
+```
+{path:.., components: {
+  compo1: ComponentVue
+  default: DefaultVue
+}}
+```
+Then in our Vue, we use `<router-view name="compo1">` to show `ComponentVue`. We are allowed to not assign a name value for only one `<router-view>`. Its name is `default`.
+
 To get the query parameter, we access it using `this.$route.query`.
 
 # Moving to real development workflow with Webpack and VueCLI
